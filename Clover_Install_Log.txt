@@ -1,0 +1,48 @@
+
+Clover EFI installer log - Mon Aug  3 09:19:43 CST 2015
+Installer version: v2.3k r3253 EFI bootloader
+======================================================
+/dev/disk0
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *251.0 GB   disk0
+   1:                        EFI EFI                     209.7 MB   disk0s1
+   2:         Microsoft Reserved                         16.8 MB    disk0s2
+   3:       Microsoft Basic Data SSD_WIN10               86.1 GB    disk0s3
+   4:                  Apple_HFS SSD_OS X                163.2 GB   disk0s4
+   5:                 Apple_Boot Recovery HD             650.0 MB   disk0s5
+   6:                  Apple_HFS SSD_BAK                 650.0 MB   disk0s6
+   7:       Microsoft Basic Data                         16.8 MB    disk0s7
+/dev/disk1
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *2.0 TB     disk1
+   1:                        EFI EFI                     209.7 MB   disk1s1
+   2:       Microsoft Basic Data ST_WIN81                111.9 GB   disk1s2
+   3:       Microsoft Basic Data ST_DATA                 1.6 TB     disk1s3
+   4:                  Apple_HFS ST_OS X 1010            136.6 GB   disk1s4
+   5:                 Apple_Boot Recovery HD             650.0 MB   disk1s5
+   6:                  Apple_HFS ST_OS X 1011            147.2 GB   disk1s6
+   7:         Microsoft Reserved                         133.2 MB   disk1s7
+   8:                  Apple_HFS ST_OS X 1095            29.5 GB    disk1s8
+   9:                 Apple_Boot Recovery HD             650.0 MB   disk1s9
+======================================================
+Backing up EFI files
+
+Backing up /Volumes/SSD_OS X/EFIROOTDIR/EFI folder to /Volumes/SSD_OS X/EFI-Backups/r3248/2015-08-03-09h19/EFI
+======================================================
+Installing BootSectors/BootLoader
+
+Stage 0 - Don't write any of boot0af, boot0md, boot0ss to /
+Stage 1 - Don't write any of boot1h2, boot1f32alt, boot1xalt to /
+
+Removing drivers64UEFI/VBoxHfs-64.efi driver because HFSPlus driver present
+======================================================
+Installing RC Scripts
+
+Installing RC scripts in '/Volumes/ST_OS X 1010' volume
+Installing RC scripts in '/Volumes/ST_OS X 1095' volume
+Installing RC scripts on target volume '/'
+
+
+======================================================
+=========== Clover EFI Installation Finish ===========
+======================================================
