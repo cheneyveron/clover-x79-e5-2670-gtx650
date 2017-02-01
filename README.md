@@ -49,7 +49,7 @@ I bought a USB sound card offline and it just worked.
 
 SMIBios cannot be higher than(or equal to) MacPro6,1 or GTX650 fails to output.
 
-## BOOTIA32.efi BOOTX64.efi and boot~boot7 matters
+## BOOTX64.efi and boot matters
 
 ## Necessary kexts:
 
