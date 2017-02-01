@@ -2,17 +2,30 @@
 
 ## Matherboard: HUANAN X79
 
-Verion 2
+Bios Verion 2.46
 
-Bios changed to support nvem SSD
+Make sure to:
+
+- Disable Serial Port
+- Disable VT-d
+- Disable USB ECHI
+- Enable USB XHCI
+
+This DSDT is valuable.
 
 ## CPU: E5-2670 v2 C2
 
 Single CPU
 
+It's better to buy E5-2670 v2 C1 rather than C2 cuz VT-d is useless
+
+Two frequency levels using NullCPUPowerManagement.
+
 ## Graphic: GTX 650
 
 Driver free
+
+Note: EI Capitan and Sierra requires DVI or HDMI port. VGA is not supported.
 
 ## Netcard: Rtl8100/8600
 
@@ -20,21 +33,31 @@ Works fine using kext.
 
 ## Sound card: Reltek ALC662
 
-Not Working at all.
+Not sure what has been done but now it works fine.
 
-Both VoodooHDA && AppleHDA
-
-Buy a USB sound card instead.
+I bought a USB sound card offline and it just worked.
 
 # Supported Systems:
 
-- 10.10 Yosemite: Perfect except sound card.
+- 10.10 Yosemite: Not tested.
 
-- 10.11 El Capitan: Service exited with abnormal code: 255
+- 10.11 El Capitan: Perfect.
 
-- 10.12 macOS Sierra: Service exited with abnormal code: 1
+- 10.12 macOS Sierra: Perfect.
 
-If anyone can solve the problems I would be so thankful.
+# Clover Tips:
+
+SMIBios cannot be higher than(or equal to) MacPro6,1 or GTX650 fails to output.
+
+## BOOTIA32.efi BOOTX64.efi and boot~boot7 matters
+
+## Necessary kexts:
+
+- FakeSMC.kext
+- NullCPUPowerManagement.kext
+- RealtekRTL8111.kext
+- USBInjectAll.kext
+- VoodooTSCSync.kext
 
 # Refs:
 
