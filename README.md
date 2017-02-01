@@ -19,7 +19,7 @@ Single CPU
 
 It's better to buy E5-2670 v2 C1 rather than C2 cuz VT-d is useless
 
-Two frequency levels using NullCPUPowerManagement.
+One frequency level at 2.6 GHz.
 
 ## Graphic: GTX 650
 
@@ -54,7 +54,6 @@ SMIBios cannot be higher than(or equal to) MacPro6,1 or GTX650 fails to output.
 ## Necessary kexts:
 
 - FakeSMC.kext
-- NullCPUPowerManagement.kext
 - RealtekRTL8111.kext
 - USBInjectAll.kext
 - VoodooTSCSync.kext

@@ -102,12 +102,12 @@
 		<false/>
 		<key>DefaultVolume</key>
 		<string>macOS Sierra</string>
-		<key>Fast</key>
-		<true/>
 		<key>Legacy</key>
 		<string>PBR</string>
 		<key>Secure</key>
 		<false/>
+		<key>Timeout</key>
+		<integer>5</integer>
 		<key>XMPDetection</key>
 		<string>Yes</string>
 	</dict>
@@ -162,9 +162,9 @@
 			<true/>
 		</dict>
 		<key>ScreenResolution</key>
-		<string>1440x900</string>
+		<string>1920x1080</string>
 		<key>Theme</key>
-		<string>OSS</string>
+		<string>metal</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -182,6 +182,18 @@
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
+		<key>ATIConnectorsController</key>
+		<string>7000</string>
+		<key>ATIConnectorsData</key>
+		<string>020000000001000000010103220502020200000000010000
+000102031204010100040000040300000001030711020303
+0004000004030000000104072103040475e21a0000000000
+7ae21a00000000007de21a000000000081e21a0000000000</string>
+		<key>ATIConnectorsPatch</key>
+		<string>000800000402000000710103000000001204020300000000
+040000001402000000010000000000000000000600000000
+000400000403000000010407000000002205040200000000
+040000001400000000011a00000000001102000500000000</string>
 		<key>AppleRTC</key>
 		<false/>
 		<key>AsusAICPUPM</key>
@@ -237,6 +249,22 @@
 				<false/>
 				<key>Find</key>
 				<data>
+				dRG5
+				</data>
+				<key>Name</key>
+				<string>AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				6xG5
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>AICPM patch</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
 				/w+ELQ==
 				</data>
 				<key>Name</key>
@@ -244,6 +272,22 @@
 				<key>Replace</key>
 				<data>
 				/w+FLQ==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>AICPM patch</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				yXQWDzJIJf8PAABI
+				</data>
+				<key>Name</key>
+				<string>AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				yesWDzJIJf8PAABI
 				</data>
 			</dict>
 			<dict>
@@ -269,22 +313,6 @@
 				<false/>
 				<key>Find</key>
 				<data>
-				yXQMDzKD4B9CiUQ7
-				</data>
-				<key>Name</key>
-				<string>AppleIntelCPUPowerManagement</string>
-				<key>Replace</key>
-				<data>
-				yesMDzKD4B9CiUQ7
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>AICPM patch</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
 				AXRf
 				</data>
 				<key>Name</key>
@@ -301,29 +329,13 @@
 				<false/>
 				<key>Find</key>
 				<data>
-				dRG5
+				yXQMDzKD4B9CiUQ7
 				</data>
 				<key>Name</key>
 				<string>AppleIntelCPUPowerManagement</string>
 				<key>Replace</key>
 				<data>
-				6xG5
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>AICPM patch</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				yXQWDzJIJf8PAABI
-				</data>
-				<key>Name</key>
-				<string>AppleIntelCPUPowerManagement</string>
-				<key>Replace</key>
-				<data>
-				yesWDzJIJf8PAABI
+				yesMDzKD4B9CiUQ7
 				</data>
 			</dict>
 			<dict>
@@ -381,8 +393,6 @@
 		<string>Part Component</string>
 		<key>Manufacturer</key>
 		<string>Apple Inc.</string>
-		<key>Mobile</key>
-		<false/>
 		<key>ProductName</key>
 		<string>iMac13,2</string>
 		<key>SerialNumber</key>

@@ -1,0 +1,69 @@
+
+Clover EFI installer log - Wed Feb  1 18:22:33 CST 2017
+Installer version: v2.3k r3994 EFI bootloader
+======================================================
+/dev/disk0 (internal, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *126.7 GB   disk0
+   1:                        EFI                         132.1 MB   disk0s1
+   2:         Microsoft Reserved                         134.2 MB   disk0s2
+   3:       Microsoft Basic Data                         126.4 GB   disk0s3
+
+/dev/disk1 (internal, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *60.0 GB    disk1
+   1:                        EFI EFI                     209.7 MB   disk1s1
+   2:                  Apple_HFS Max                     25.8 GB    disk1s2
+   3:                 Apple_Boot Recovery HD             650.0 MB   disk1s3
+   4:                  Apple_HFS Untitled                19.2 GB    disk1s4
+   5:                  Apple_HFS Sierra                  13.8 GB    disk1s5
+
+/dev/disk2 (internal, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *500.1 GB   disk2
+   1:               Windows_NTFS TOSHIBA                 500.1 GB   disk2s1
+
+/dev/disk3 (internal, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *60.0 GB    disk3
+   1:                        EFI EFI                     209.7 MB   disk3s1
+   2:                  Apple_HFS MS                      45.2 GB    disk3s2
+   3:                 Apple_Boot Recovery HD             650.0 MB   disk3s3
+   4:                  Apple_HFS Install macOS Sierra    6.9 GB     disk3s4
+   5:                  Apple_HFS Install OS X El Capitan 6.9 GB     disk3s5
+
+/dev/disk4 (internal, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *500.1 GB   disk4
+   1:               Windows_NTFS Mum                     500.1 GB   disk4s1
+
+/dev/disk5 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *8.4 GB     disk5
+   1:                 DOS_FAT_32 DOS                     8.4 GB     disk5s1
+
+/dev/disk6 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *16.0 GB    disk6
+   1:                        EFI EFI                     209.7 MB   disk6s1
+   2:                  Apple_HFS Install macOS Sierra    15.7 GB    disk6s2
+
+/dev/disk7 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *15.6 GB    disk7
+   1:               Windows_NTFS USBZL                   14.5 GB    disk7s1
+   2:             Windows_FAT_16 EFI                     1.1 GB     disk7s2
+
+======================================================
+Backing up EFI files
+
+======================================================
+Installing BootSectors/BootLoader
+
+Stage 0 - Don't write any of boot0af, boot0md, boot0ss to /
+Stage 1 - Don't write any of boot1h2, boot1f32alt, boot1xalt to /
+Stage 2 - Written boot6 (x64) to //boot
+
+======================================================
+=========== Clover EFI Installation Finish ===========
+======================================================
