@@ -59,8 +59,6 @@ I bought a USB sound card offline and it just worked.
 
 # Clover Tips:
 
-SMIBios cannot be higher than(or equal to) MacPro6,1 or GTX650 fails to output.
-
 ## BOOTX64.efi and boot matters
 
 ## Necessary kexts:
