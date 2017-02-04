@@ -19,13 +19,25 @@ Single CPU
 
 It's better to buy E5-2670 v2 C1 rather than C2 cuz VT-d is useless
 
-One frequency level at 2.6 GHz.
+Frequency change from 1.2 to 3.3, levels not counted.
+
+run 10.12 aicpm patch.command -> AICPMPatch -> caches_rebuild.command
+
+before that the frequency will be locked to 2.6 GHz or 1.2 GHz.
 
 ## Graphic: GTX 650
 
 Driver free
 
 Note: EI Capitan and Sierra requires DVI or HDMI port. VGA is not supported.
+
+And, you must install with nv_disable=1 or impossible to go into system.
+
+After installation, run AGDPfix.app. After Fixing, go to /System/Library/Extensions/AppleGraphicsControl.kext/Contents/PlugIns/AppleGraphicsDevicePolicy.kext/Contents/Info.plist
+
+change ConfigMap one of the Models to your SMIBIOS, in my config that is Mac-F65AE981FFA204ED
+
+then reboot and remove nv_disable=1
 
 ## Netcard: Rtl8100/8600
 
