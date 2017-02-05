@@ -17,13 +17,13 @@ This DSDT and SSDT is valuable. CPU frequency change relies on them.
 
 Single CPU
 
-It's better to buy E5-2670 v2 C1 rather than C2 cuz VT-d is useless
+It's better to buy E5-2670 v1 C1 rather than C2 cuz VT-d is useless
 
 Frequency change from 1.2 to 3.3, levels not counted.
 
 After Installation,run
 
-```10.12 aicpm patch.command -> AICPMPatch -> caches_rebuild.command```
+```10.12 aicpm patch.command```` -> ````AICPMPatch```` -> ````caches_rebuild.command```
 
 before that the frequency will be locked to 2.6 GHz or 1.2 GHz.
 
@@ -33,9 +33,17 @@ Driver free
 
 Note: EI Capitan and Sierra requires DVI or HDMI port. VGA is not supported.
 
-And, you must install with nv_disable=1 or impossible to go into system.
+Make sure the Model in SMIBIOS is corrsponding to a patch to GraphicPlicy in Kexts and Patches.
+In my config the model is Mac-F65AE981FFA204ED.
+otherwise graphic card will fail to output.
 
-Make sure the Model in SMIBIOS is not changed. In my config that is Mac-F65AE981FFA204ED otherwise graphic card will fail to start.
+Set SMIBIOS Model to MacPro6,1 and Graphic card can change frequency But not CPU.
+
+And to Macmini6,2 CPU can change frequency but not graphic card.
+
+What's more important?
+
+That is up to YOU. I choose CPU.
 
 ## Netcard: Rtl8100/8600
 
