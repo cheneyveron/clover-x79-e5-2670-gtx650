@@ -13,7 +13,7 @@ Make sure to:
 
 This DSDT and SSDT is valuable. CPU frequency change relies on them.
 
-## CPU: E5-2670 v2 C2
+## CPU: E5-2670 v1 C2
 
 Single CPU
 
