@@ -71,17 +71,17 @@
 				<key>Signature</key>
 				<string>SSDT</string>
 				<key>TableId</key>
-				<string>Cpu0Ist</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>DMAR</string>
+				<string>CpuPm</string>
 			</dict>
 			<dict>
 				<key>Signature</key>
 				<string>SSDT</string>
 				<key>TableId</key>
-				<string>CpuPm</string>
+				<string>Cpu0Ist</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>DMAR</string>
 			</dict>
 		</array>
 		<key>HaltEnabler</key>
@@ -93,10 +93,6 @@
 			<key>Generate</key>
 			<false/>
 		</dict>
-		<key>SortedOrder</key>
-		<array>
-			<string>SSDT.aml</string>
-		</array>
 	</dict>
 	<key>Boot</key>
 	<dict>
@@ -223,71 +219,47 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>AICPM patch</string>
+				<string>gConfig1 to gnone</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				yXQWDzJIJf8PAABI
-				</data>
+				<string>673e436f6e66696731</string>
+				<key>InfoPlistPatch</key>
+				<true/>
 				<key>Name</key>
-				<string>AppleIntelCPUPowerManagement</string>
+				<string>AppleGraphicsDevicePolicy</string>
 				<key>Replace</key>
-				<data>
-				yesWDzJIJf8PAABI
-				</data>
+				<string>673e6e6f6e65</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>AICPM patch</string>
+				<string>Mac-00BE6ED71E35EB86 to Mac-F65AE981FFA204ED</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				/w+ELQ==
-				</data>
+				<string>4d61632d30304245364544373145333545423836</string>
+				<key>InfoPlistPatch</key>
+				<true/>
 				<key>Name</key>
-				<string>AppleIntelCPUPowerManagement</string>
+				<string>AppleGraphicsDevicePolicy</string>
 				<key>Replace</key>
-				<data>
-				/w+FLQ==
-				</data>
+				<string>4d61632d46363541453938314646413230344544</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>AICPM patch</string>
+				<string>gConfig2 to gnone</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				PnU5
-				</data>
+				<string>673e436f6e66696732</string>
+				<key>InfoPlistPatch</key>
+				<true/>
 				<key>Name</key>
-				<string>AppleIntelCPUPowerManagement</string>
+				<string>AppleGraphicsDevicePolicy</string>
 				<key>Replace</key>
-				<data>
-				PpCQ
-				</data>
+				<string>673e6e6f6e65</string>
 			</dict>
 			<dict>
-				<key>Comment</key>
-				<string>AICPM patch</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AQABD4Q=
-				</data>
-				<key>Name</key>
-				<string>AppleIntelCPUPowerManagement</string>
-				<key>Replace</key>
-				<data>
-				AQABD4U=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>AICPM patch</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
@@ -302,24 +274,62 @@
 				</data>
 			</dict>
 			<dict>
-				<key>Comment</key>
-				<string>AICPM patch</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
 				<data>
-				AXRf
+				AQABD4Q=
 				</data>
 				<key>Name</key>
 				<string>AppleIntelCPUPowerManagement</string>
 				<key>Replace</key>
 				<data>
-				Aetf
+				AQABD4U=
 				</data>
 			</dict>
 			<dict>
-				<key>Comment</key>
-				<string>AICPM patch</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AXRh
+				</data>
+				<key>Name</key>
+				<string>AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				Aeth
+				</data>
+			</dict>
+			<dict>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				yXQVDzIl/w8AAEg=
+				</data>
+				<key>Name</key>
+				<string>AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				yesVDzIl/w8AAEg=
+				</data>
+			</dict>
+			<dict>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				/w+ELQ==
+				</data>
+				<key>Name</key>
+				<string>AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				/w+FLQ==
+				</data>
+			</dict>
+			<dict>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
@@ -331,6 +341,20 @@
 				<key>Replace</key>
 				<data>
 				yesMDzKD4B9CiUQ7
+				</data>
+			</dict>
+			<dict>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				PnU4
+				</data>
+				<key>Name</key>
+				<string>AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				PpCQ
 				</data>
 			</dict>
 			<dict>
@@ -388,8 +412,6 @@
 		<string>Part Component</string>
 		<key>Manufacturer</key>
 		<string>Apple Inc.</string>
-		<key>Mobile</key>
-		<false/>
 		<key>ProductName</key>
 		<string>Macmini6,2</string>
 		<key>SerialNumber</key>
