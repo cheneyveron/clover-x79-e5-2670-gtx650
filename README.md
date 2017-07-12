@@ -23,7 +23,7 @@ Frequency change from 1.2 to 3.3, levels not counted.
 
 After Installation,run
 
-```10.12 aicpm patch.command```` -> ````AICPMPatch```` -> ````caches_rebuild.command```
+```10.12 aicpm patch.command``` -> ```AICPMPatch``` -> ```caches_rebuild.command```
 
 before that the frequency will be locked to 2.6 GHz or 1.2 GHz.
 
@@ -31,19 +31,11 @@ before that the frequency will be locked to 2.6 GHz or 1.2 GHz.
 
 Driver free
 
-Note: EI Capitan and Sierra requires DVI or HDMI port. VGA is not supported.
+Now I use ```Lilu.kext``` and ```NvidiaGraphicsFixup.kext``` to void black screen.
 
-Make sure the Model in SMIBIOS is corrsponding to a patch to GraphicPlicy in Kexts and Patches.
-In my config the model is Mac-F65AE981FFA204ED.
-otherwise graphic card will fail to output.
+Set SMIBIOS Model to MacPro6,1 now Graphic card can change frequency between 1 and 5 GHz.
 
-Set SMIBIOS Model to MacPro6,1 and Graphic card can change frequency But not CPU.
-
-And to Macmini6,2 CPU can change frequency but not graphic card.
-
-What's more important?
-
-That is up to YOU. I choose CPU.
+Dota2 is very fluent, that's enough for me :)
 
 ## Netcard: Rtl8100/8600
 
@@ -51,9 +43,7 @@ Works fine using kext.
 
 ## Sound card: Reltek ALC662
 
-Not sure what has been done but now it works fine.
-
-I bought a USB sound card offline and it just worked.
+Works fine.
 
 # Supported Systems:
 
@@ -62,6 +52,8 @@ I bought a USB sound card offline and it just worked.
 - 10.11 El Capitan: Perfect.
 
 - 10.12 macOS Sierra: Perfect.
+
+- 10.13 macOS High Sierra: Waiting for clover update.
 
 # Clover Tips:
 
@@ -75,6 +67,8 @@ Do not change config.plist SMIBIOS ACPI and RT Variables.
 - RealtekRTL8111.kext
 - USBInjectAll.kext
 - VoodooTSCSync.kext
+- Lilu.kext
+- NvidiaGraphicsFixup.kext
 
 # Refs:
 
@@ -83,6 +77,8 @@ I stealed from:
 PCBeta: http://bbs.pcbeta.com/viewthread-1720390-1-1.html
 
 PCBeta: http://bbs.pcbeta.com/viewthread-1724967-1-1.html
+
+Tonymacx86.com: https://www.tonymacx86.com/threads/black-screen-with-macpro-6-1-or-imac-15-or-imac-17-system-definition.183113/
 
 And the whole bbs.pcbeta.com
 

@@ -69,6 +69,10 @@
 		<array>
 			<dict>
 				<key>Signature</key>
+				<string>DMAR</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
 				<string>SSDT</string>
 				<key>TableId</key>
 				<string>CpuPm</string>
@@ -79,10 +83,6 @@
 				<key>TableId</key>
 				<string>Cpu0Ist</string>
 			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>DMAR</string>
-			</dict>
 		</array>
 		<key>HaltEnabler</key>
 		<true/>
@@ -91,7 +91,12 @@
 			<key>DropOem</key>
 			<true/>
 			<key>Generate</key>
-			<false/>
+			<dict>
+				<key>CStates</key>
+				<false/>
+				<key>PStates</key>
+				<false/>
+			</dict>
 		</dict>
 	</dict>
 	<key>Boot</key>
@@ -101,13 +106,13 @@
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
-		<string>macOS Sierra</string>
+		<string>Macintosh HD</string>
 		<key>Legacy</key>
 		<string>PBR</string>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>5</integer>
+		<integer>1</integer>
 		<key>XMPDetection</key>
 		<string>Yes</string>
 	</dict>
@@ -162,12 +167,12 @@
 			<key>Linux</key>
 			<false/>
 			<key>Tool</key>
-			<true/>
+			<false/>
 		</dict>
 		<key>ScreenResolution</key>
 		<string>1920x1080</string>
 		<key>Theme</key>
-		<string>metal</string>
+		<string>El Capitan v1</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -218,46 +223,18 @@
 				</data>
 			</dict>
 			<dict>
-				<key>Comment</key>
-				<string>gConfig1 to gnone</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<string>673e436f6e66696731</string>
-				<key>InfoPlistPatch</key>
-				<true/>
+				<data>
+				yXQMDzKD4B9CiUQ7
+				</data>
 				<key>Name</key>
-				<string>AppleGraphicsDevicePolicy</string>
+				<string>AppleIntelCPUPowerManagement</string>
 				<key>Replace</key>
-				<string>673e6e6f6e65</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Mac-00BE6ED71E35EB86 to Mac-F65AE981FFA204ED</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<string>4d61632d30304245364544373145333545423836</string>
-				<key>InfoPlistPatch</key>
-				<true/>
-				<key>Name</key>
-				<string>AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<string>4d61632d46363541453938314646413230344544</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>gConfig2 to gnone</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<string>673e436f6e66696732</string>
-				<key>InfoPlistPatch</key>
-				<true/>
-				<key>Name</key>
-				<string>AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<string>673e6e6f6e65</string>
+				<data>
+				yesMDzKD4B9CiUQ7
+				</data>
 			</dict>
 			<dict>
 				<key>Disabled</key>
@@ -334,20 +311,6 @@
 				<false/>
 				<key>Find</key>
 				<data>
-				yXQMDzKD4B9CiUQ7
-				</data>
-				<key>Name</key>
-				<string>AppleIntelCPUPowerManagement</string>
-				<key>Replace</key>
-				<data>
-				yesMDzKD4B9CiUQ7
-				</data>
-			</dict>
-			<dict>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
 				PnU4
 				</data>
 				<key>Name</key>
@@ -381,41 +344,43 @@
 		<string>0x28</string>
 		<key>CsrActiveConfig</key>
 		<string>0x67</string>
-		<key>MLB</key>
-		<string>C02LGE6UF8JCRGBUI</string>
 		<key>ROM</key>
-		<string>7f101c5edc55</string>
+		<string>UseMacAddr0</string>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>10/23/12</string>
+		<string>06/26/2017</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MM61.88Z.0106.B00.1208091121</string>
+		<string>MP61.88Z.0117.B01.1706261354</string>
 		<key>Board-ID</key>
-		<string>Mac-F65AE981FFA204ED</string>
+		<string>Mac-F60DEB81FF30ACF6</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
+		<key>BoardSerialNumber</key>
+		<string>C0233600SJFNN1AY</string>
 		<key>BoardType</key>
-		<integer>10</integer>
+		<integer>11</integer>
 		<key>ChassisAssetTag</key>
-		<string>Mini-Aluminum</string>
+		<string>Pro-Enclosure</string>
 		<key>ChassisManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>ChassisType</key>
-		<string>0x16</string>
+		<string>0x06</string>
 		<key>Family</key>
-		<string>Mac mini</string>
+		<string>Mac Pro</string>
 		<key>LocationInChassis</key>
 		<string>Part Component</string>
 		<key>Manufacturer</key>
 		<string>Apple Inc.</string>
 		<key>ProductName</key>
-		<string>Macmini6,2</string>
+		<string>MacPro6,1</string>
 		<key>SerialNumber</key>
-		<string>C02LC281DWYN</string>
+		<string>C02K4QP4F9VM</string>
+		<key>SmUUID</key>
+		<string>90B9AD04-842C-467B-8509-000F54FAF04C</string>
 		<key>Trust</key>
 		<false/>
 		<key>Version</key>
@@ -423,9 +388,13 @@
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
+		<key>CustomUUID</key>
+		<string>F5BC8806-D9A9-4168-806E-A5B50C271E4F</string>
 		<key>InjectKexts</key>
 		<string>Yes</string>
 		<key>InjectSystemID</key>
+		<true/>
+		<key>NoCaches</key>
 		<true/>
 	</dict>
 </dict>
