@@ -4,6 +4,8 @@
 
 Bios Verion 2.46
 
+Clover Version 4114
+
 Make sure to:
 
 - Disable Serial Port
@@ -11,7 +13,7 @@ Make sure to:
 - Disable USB ECHI
 - Enable USB XHCI
 
-This DSDT and SSDT is valuable. CPU frequency change relies on them.
+This DSDT and SSDT is valuable. CPU frequency change and USB relies on them.
 
 ## CPU: E5-2670 v1 C2
 
@@ -23,7 +25,7 @@ Frequency change from 1.2 to 3.3, levels not counted.
 
 After Installation,run
 
-```10.12 aicpm patch.command``` -> ```AICPMPatch``` -> ```caches_rebuild.command```
+`10.12 aicpm patch.command` -> `AICPMPatch` -> `caches_rebuild.command`
 
 before that the frequency will be locked to 2.6 GHz or 1.2 GHz.
 
@@ -31,11 +33,23 @@ before that the frequency will be locked to 2.6 GHz or 1.2 GHz.
 
 Driver free
 
-Now I use ```Lilu.kext``` and ```NvidiaGraphicsFixup.kext``` to void black screen.
+Now I use `Lilu.kext` and `NvidiaGraphicsFixup.kext` to void black screen.
 
 Set SMIBIOS Model to MacPro6,1 now Graphic card can change frequency between 1 and 5 GHz.
 
 Dota2 is very fluent, that's enough for me :)
+
+## Graphic 2: GTX 1050TI
+
+Driver free:
+
+Just install the latest Web Driver.
+
+Add `CsmVideoDxe-64.efi` so that Clover can display 1080P at boot screen.
+
+But this will slow boot time up to 4 sec.
+
+If you do not care about boot resolution but care about speed, just delete `CsmVideoDxe-64.efi`
 
 ## Netcard: Rtl8100/8600
 
@@ -51,9 +65,11 @@ Works fine.
 
 - 10.11 El Capitan: Perfect.
 
-- 10.12 macOS Sierra: Perfect.
+- 10.12.6 macOS Sierra: Perfect.
 
-- 10.13 macOS High Sierra: Waiting for clover update.
+- 10.13 macOS High Sierra: Stuck at `Backtrace continues...
+BSD process name corresponding to current thread: kernel_task
+Attempting system restart...MACH Reboot`.
 
 # Clover Tips:
 

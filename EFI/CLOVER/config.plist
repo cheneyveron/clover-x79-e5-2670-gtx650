@@ -75,13 +75,13 @@
 				<key>Signature</key>
 				<string>SSDT</string>
 				<key>TableId</key>
-				<string>CpuPm</string>
+				<string>Cpu0Ist</string>
 			</dict>
 			<dict>
 				<key>Signature</key>
 				<string>SSDT</string>
 				<key>TableId</key>
-				<string>Cpu0Ist</string>
+				<string>CpuPm</string>
 			</dict>
 		</array>
 		<key>HaltEnabler</key>
@@ -105,6 +105,8 @@
 		<string>-v slide=0 dart=0 npci=0x3000 kext-dev-mode=1 rootless=0</string>
 		<key>Debug</key>
 		<false/>
+		<key>DefaultLoader</key>
+		<string>boot.efi</string>
 		<key>DefaultVolume</key>
 		<string>Macintosh HD</string>
 		<key>Legacy</key>
@@ -144,9 +146,12 @@
 	<dict>
 		<key>Hide</key>
 		<array>
-			<string>Windows</string>
 			<string>\EFI\BOOT\BOOTX64.EFI</string>
+			<string>Windows</string>
+			<string>Boot OS X</string>
 		</array>
+		<key>Language</key>
+		<string>en:0</string>
 		<key>Mouse</key>
 		<dict>
 			<key>DoubleClick</key>
@@ -172,7 +177,7 @@
 		<key>ScreenResolution</key>
 		<string>1920x1080</string>
 		<key>Theme</key>
-		<string>El Capitan v1</string>
+		<string>Random</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -185,6 +190,8 @@
 			<key>NVidia</key>
 			<false/>
 		</dict>
+		<key>NvidiaNoEFI</key>
+		<false/>
 		<key>NvidiaSingle</key>
 		<false/>
 	</dict>
@@ -227,13 +234,27 @@
 				<false/>
 				<key>Find</key>
 				<data>
-				yXQMDzKD4B9CiUQ7
+				AXRh
 				</data>
 				<key>Name</key>
 				<string>AppleIntelCPUPowerManagement</string>
 				<key>Replace</key>
 				<data>
-				yesMDzKD4B9CiUQ7
+				Aeth
+				</data>
+			</dict>
+			<dict>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				PnU4
+				</data>
+				<key>Name</key>
+				<string>AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				PpCQ
 				</data>
 			</dict>
 			<dict>
@@ -255,34 +276,6 @@
 				<false/>
 				<key>Find</key>
 				<data>
-				AQABD4Q=
-				</data>
-				<key>Name</key>
-				<string>AppleIntelCPUPowerManagement</string>
-				<key>Replace</key>
-				<data>
-				AQABD4U=
-				</data>
-			</dict>
-			<dict>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AXRh
-				</data>
-				<key>Name</key>
-				<string>AppleIntelCPUPowerManagement</string>
-				<key>Replace</key>
-				<data>
-				Aeth
-				</data>
-			</dict>
-			<dict>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
 				yXQVDzIl/w8AAEg=
 				</data>
 				<key>Name</key>
@@ -297,13 +290,13 @@
 				<false/>
 				<key>Find</key>
 				<data>
-				/w+ELQ==
+				yXQMDzKD4B9CiUQ7
 				</data>
 				<key>Name</key>
 				<string>AppleIntelCPUPowerManagement</string>
 				<key>Replace</key>
 				<data>
-				/w+FLQ==
+				yesMDzKD4B9CiUQ7
 				</data>
 			</dict>
 			<dict>
@@ -311,13 +304,27 @@
 				<false/>
 				<key>Find</key>
 				<data>
-				PnU4
+				AQABD4Q=
 				</data>
 				<key>Name</key>
 				<string>AppleIntelCPUPowerManagement</string>
 				<key>Replace</key>
 				<data>
-				PpCQ
+				AQABD4U=
+				</data>
+			</dict>
+			<dict>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				/w+ELQ==
+				</data>
+				<key>Name</key>
+				<string>AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				/w+FLQ==
 				</data>
 			</dict>
 			<dict>
@@ -360,7 +367,7 @@
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C0233600SJFNN1AY</string>
+		<string>C0233600SJFNN1AYZ</string>
 		<key>BoardType</key>
 		<integer>11</integer>
 		<key>ChassisAssetTag</key>
@@ -375,26 +382,26 @@
 		<string>Part Component</string>
 		<key>Manufacturer</key>
 		<string>Apple Inc.</string>
+		<key>Mobile</key>
+		<false/>
 		<key>ProductName</key>
 		<string>MacPro6,1</string>
 		<key>SerialNumber</key>
-		<string>C02K4QP4F9VM</string>
+		<string>C02KKLEUF9VM</string>
 		<key>SmUUID</key>
 		<string>90B9AD04-842C-467B-8509-000F54FAF04C</string>
-		<key>Trust</key>
-		<false/>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
-		<key>CustomUUID</key>
-		<string>F5BC8806-D9A9-4168-806E-A5B50C271E4F</string>
 		<key>InjectKexts</key>
 		<string>Yes</string>
 		<key>InjectSystemID</key>
 		<true/>
 		<key>NoCaches</key>
+		<true/>
+		<key>NvidiaWeb</key>
 		<true/>
 	</dict>
 </dict>
