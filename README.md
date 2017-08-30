@@ -67,9 +67,7 @@ Works fine.
 
 - 10.12.6 macOS Sierra: Perfect.
 
-- 10.13 macOS High Sierra: Stuck at `Backtrace continues...
-BSD process name corresponding to current thread: kernel_task
-Attempting system restart...MACH Reboot`.
+- 10.13 macOS High Sierra: Perfect.
 
 # Clover Tips:
 
@@ -85,6 +83,14 @@ Do not change config.plist SMIBIOS ACPI and RT Variables.
 - VoodooTSCSync.kext
 - Lilu.kext
 - NvidiaGraphicsFixup.kext
+
+# About Solving 10.13 AppleACPIPlatform:
+
+Just use this updated dsdt.
+
+Wanna see my solving process? in Chinese: http://bbs.pcbeta.com/viewthread-1753833-1-1.html
+
+In English: http://www.insanelymac.com/forum/topic/326200-new-possibilities-for-x79-appleacpiplatform-panic
 
 # Refs:
 

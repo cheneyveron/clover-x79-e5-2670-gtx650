@@ -83,6 +83,58 @@
 				<key>TableId</key>
 				<string>CpuPm</string>
 			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>MCFG</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>XSDT</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>RSDT</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>FACP</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>RSDP</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>FPDT</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>FIDT</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>MATS</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SLIC</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>BGRT</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>DBGP</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>DBG2</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>LPIT</string>
+			</dict>
 		</array>
 		<key>HaltEnabler</key>
 		<true/>
@@ -102,7 +154,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-v slide=0 dart=0 npci=0x3000 kext-dev-mode=1 rootless=0</string>
+		<string>slide=0 dart=0 npci=0x3000 nvda_drv=1 kext-dev-mode=1 rootless=0 keepsyms=1 debug=0x100</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultLoader</key>
@@ -144,14 +196,38 @@
 	</dict>
 	<key>GUI</key>
 	<dict>
+		<key>Custom</key>
+		<dict>
+			<key>Entries</key>
+			<array>
+				<dict>
+					<key>AddArguments</key>
+					<string>root=UUID=b4e7cfb3-8da6-445f-af9c-96198df3cbfa rw add_efi_memmap initrd=/EFI/grub/kernel/initramfs-linux.img</string>
+					<key>CustomLogo</key>
+					<string>Theme</string>
+					<key>Disabled</key>
+					<true/>
+					<key>FullTitle</key>
+					<string>Cheney Arch</string>
+					<key>Hidden</key>
+					<true/>
+					<key>Ignore</key>
+					<false/>
+					<key>Path</key>
+					<string>\efi\grub\kernel\vmlinuz-linux</string>
+					<key>Type</key>
+					<string>Linux</string>
+					<key>Volume</key>
+					<string>D5B8657F-B69B-4C5E-BEC4-3C9ED6D18788</string>
+					<key>VolumeType</key>
+					<string>Internal</string>
+				</dict>
+			</array>
+		</dict>
 		<key>Hide</key>
 		<array>
-			<string>\EFI\BOOT\BOOTX64.EFI</string>
-			<string>Windows</string>
 			<string>Boot OS X</string>
 		</array>
-		<key>Language</key>
-		<string>en:0</string>
 		<key>Mouse</key>
 		<dict>
 			<key>DoubleClick</key>
@@ -177,7 +253,7 @@
 		<key>ScreenResolution</key>
 		<string>1920x1080</string>
 		<key>Theme</key>
-		<string>Random</string>
+		<string>random</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -190,23 +266,23 @@
 			<key>NVidia</key>
 			<false/>
 		</dict>
-		<key>NvidiaNoEFI</key>
-		<false/>
 		<key>NvidiaSingle</key>
 		<false/>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
+		<key>AppleIntelCPUPM</key>
+		<true/>
 		<key>AppleRTC</key>
 		<false/>
-		<key>AsusAICPUPM</key>
-		<true/>
 		<key>Debug</key>
 		<false/>
 		<key>KernelCpu</key>
 		<false/>
 		<key>KernelHaswellE</key>
 		<false/>
+		<key>KernelIvyXCPM</key>
+		<true/>
 		<key>KernelLapic</key>
 		<false/>
 		<key>KernelPm</key>
@@ -231,7 +307,7 @@
 			</dict>
 			<dict>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				AXRh
@@ -245,7 +321,7 @@
 			</dict>
 			<dict>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				PnU4
@@ -259,7 +335,7 @@
 			</dict>
 			<dict>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				dRG5
@@ -273,7 +349,7 @@
 			</dict>
 			<dict>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				yXQVDzIl/w8AAEg=
@@ -287,7 +363,7 @@
 			</dict>
 			<dict>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				yXQMDzKD4B9CiUQ7
@@ -301,7 +377,7 @@
 			</dict>
 			<dict>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				AQABD4Q=
@@ -315,7 +391,7 @@
 			</dict>
 			<dict>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				/w+ELQ==
@@ -352,49 +428,59 @@
 		<key>CsrActiveConfig</key>
 		<string>0x67</string>
 		<key>ROM</key>
-		<string>UseMacAddr0</string>
+		<data>
+		jy3Yy2eE
+		</data>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>06/26/2017</string>
+		<string>08/08/2017</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MP61.88Z.0117.B01.1706261354</string>
+		<string>MP61.88Z.0120.B00.1708080652</string>
 		<key>Board-ID</key>
 		<string>Mac-F60DEB81FF30ACF6</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C0233600SJFNN1AYZ</string>
+		<string>F5K403501OPF504AD</string>
 		<key>BoardType</key>
 		<integer>11</integer>
+		<key>BoardVersion</key>
+		<string>MacPro6,1</string>
 		<key>ChassisAssetTag</key>
 		<string>Pro-Enclosure</string>
 		<key>ChassisManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>ChassisType</key>
-		<string>0x06</string>
+		<string>0x02</string>
 		<key>Family</key>
-		<string>Mac Pro</string>
+		<string>MacPro</string>
+		<key>FirmwareFeatures</key>
+		<string>0xE80FE136</string>
+		<key>FirmwareFeaturesMask</key>
+		<string>0xFF1FFF3F</string>
 		<key>LocationInChassis</key>
 		<string>Part Component</string>
 		<key>Manufacturer</key>
 		<string>Apple Inc.</string>
 		<key>Mobile</key>
 		<false/>
+		<key>PlatformFeature</key>
+		<string>0x04</string>
 		<key>ProductName</key>
 		<string>MacPro6,1</string>
 		<key>SerialNumber</key>
-		<string>C02KKLEUF9VM</string>
-		<key>SmUUID</key>
-		<string>90B9AD04-842C-467B-8509-000F54FAF04C</string>
+		<string>F5KM42G0F9VM</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
+		<key>CustomUUID</key>
+		<string>E28F55AD-F8B6-4433-B7F4-25F21DCB6784</string>
 		<key>InjectKexts</key>
 		<string>Yes</string>
 		<key>InjectSystemID</key>
