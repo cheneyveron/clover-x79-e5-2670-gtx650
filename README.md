@@ -1,5 +1,19 @@
 # Hackintosh Clover for 华南(HUANAN) X79
 
+# About Solving 10.13 AppleACPIPlatform:
+
+Just use this updated dsdt.
+
+Wanna see my solving process?
+
+Here in my blog(Chinese): https://www.itmanbu.com/appleacpiplatform.html
+
+PCbeta(Chinese): http://bbs.pcbeta.com/viewthread-1753833-1-1.html
+
+Insanelymac(English): http://www.insanelymac.com/forum/topic/326200-new-possibilities-for-x79-appleacpiplatform-panic
+
+# Hardware Specifications:
+
 ## Matherboard: HUANAN X79
 
 Bios Verion 2.46
@@ -84,13 +98,6 @@ Do not change config.plist SMIBIOS ACPI and RT Variables.
 - Lilu.kext
 - NvidiaGraphicsFixup.kext
 
-# About Solving 10.13 AppleACPIPlatform:
-
-Just use this updated dsdt.
-
-Wanna see my solving process? in Chinese: http://bbs.pcbeta.com/viewthread-1753833-1-1.html
-
-In English: http://www.insanelymac.com/forum/topic/326200-new-possibilities-for-x79-appleacpiplatform-panic
 
 # Refs:
 
