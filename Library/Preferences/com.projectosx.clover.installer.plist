@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CloverRevision</key>
+	<integer>4220</integer>
+	<key>InstalledThemes</key>
+	<array>
+		<string>metal</string>
+		<string>El Capitan v1</string>
+		<string>random</string>
+		<string>Bootcamp</string>
+		<string>embedded</string>
+		<string>El Capitan v2</string>
+		<string>BGM</string>
+		<string>BTC1920X1080</string>
+	</array>
+	<key>org.clover.bootloader.bootno</key>
+	<true/>
+	<key>org.clover.drivers64uefi.csmvideodxe-64</key>
+	<true/>
+	<key>org.clover.drivers64uefi.fat-64</key>
+	<true/>
+	<key>org.clover.drivers64uefi.osxaptiofixdrv-64</key>
+	<true/>
+	<key>org.clover.drivers64uefi.partitiondxe-64</key>
+	<true/>
+	<key>org.clover.target.esp</key>
+	<true/>
+	<key>org.clover.themes.bgm</key>
+	<true/>
+	<key>org.clover.themes.embedded</key>
+	<true/>
+	<key>org.clover.themes.random</key>
+	<true/>
+	<key>org.clover.uefi.only</key>
+	<true/>
+</dict>
+</plist>
