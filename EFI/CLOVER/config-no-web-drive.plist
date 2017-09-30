@@ -9,16 +9,37 @@
 			<key>Debug</key>
 			<false/>
 			<key>DropOEM_DSM</key>
-			<false/>
+			<true/>
 			<key>Name</key>
 			<string>DSDT.aml</string>
 			<key>ReuseFFFF</key>
 			<false/>
 		</dict>
+		<key>DropTables</key>
+		<array>
+			<dict>
+				<key>Signature</key>
+				<string>DMAR</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>Cpu0Ist</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>CpuPm</string>
+			</dict>
+		</array>
+		<key>HaltEnabler</key>
+		<true/>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
-			<false/>
+			<true/>
 			<key>Generate</key>
 			<dict>
 				<key>CStates</key>
@@ -143,7 +164,7 @@
 	<key>KernelAndKextPatches</key>
 	<dict>
 		<key>AppleIntelCPUPM</key>
-		<false/>
+		<true/>
 		<key>AppleRTC</key>
 		<false/>
 		<key>Debug</key>
@@ -190,6 +211,150 @@
 				<key>Replace</key>
 				<data>
 				AAAAAAAAAAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AXRh
+				</data>
+				<key>MatchOS</key>
+				<string>10.12.x,10.13.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				Aeth
+				</data>
+			</dict>
+			<dict>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				yXQMDzKD4B9CiUQ7
+				</data>
+				<key>MatchOS</key>
+				<string>10.12.x,10.13.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				yesMDzKD4B9CiUQ7
+				</data>
+			</dict>
+			<dict>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				dRG5
+				</data>
+				<key>MatchOS</key>
+				<string>10.12.x,10.13.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				6xG5
+				</data>
+			</dict>
+			<dict>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				/w+ELQ==
+				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				/w+FLQ==
+				</data>
+			</dict>
+			<dict>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				yXQVDzIl/w8AAEg=
+				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				yesVDzIl/w8AAEg=
+				</data>
+			</dict>
+			<dict>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AQABD4Q=
+				</data>
+				<key>MatchOS</key>
+				<string>10.12.x,10.13.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				AQABD4U=
+				</data>
+			</dict>
+			<dict>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				PnU4
+				</data>
+				<key>MatchOS</key>
+				<string>10.12.x,10.13.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				PpCQ
+				</data>
+			</dict>
+			<dict>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				/w+E0w==
+				</data>
+				<key>MatchOS</key>
+				<string>10.13.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				/w+F0w==
+				</data>
+			</dict>
+			<dict>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				yXQUDzIl/w8AAGs=
+				</data>
+				<key>MatchOS</key>
+				<string>10.13.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelCPUPowerManagement</string>
+				<key>Replace</key>
+				<data>
+				yesUDzIl/w8AAGs=
 				</data>
 			</dict>
 		</array>
@@ -260,8 +425,6 @@
 		<true/>
 		<key>NoCaches</key>
 		<true/>
-		<key>NvidiaWeb</key>
-		<false/>
 	</dict>
 </dict>
 </plist>
