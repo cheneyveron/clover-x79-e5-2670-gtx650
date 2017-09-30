@@ -31,9 +31,9 @@ Single CPU
 
 It's better to buy E5-2670 v1 C1 rather than C2 cuz VT-d is useless
 
-With the updated rom, Frequency change between (1.2 / 3.0 / 3.1 / 3.2 / 3.3), 5-levels.
+With the updated rom, Frequency change between (1.2 / 1.9 / 2.3 / 2.6 / 3.0 / 3.1 / 3.2 / 3.3), 8-levels.
 
-**I'm currently working on it to get more levels.**
+~~**I'm currently working on it to get more levels.**~~ I have achieved that within a day, cheers!
 
 Without flushing the rom, After Installation, run
 
