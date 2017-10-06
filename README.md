@@ -57,9 +57,9 @@ Dota2 is very fluent, that's enough for me :)
 
 ## Graphic 2: GTX 1050TI
 
-Driver free:
+**DO NOT INSTALL ANY SYSTEM UPDATE AFTER INSTALLING WEB DRIVER!!!**
 
-Just install the latest Web Driver.
+Install the latest Web Driver.
 
 In order to install the latest driver for High Sierra, Make sure you have SIP turned on. Otherwise you can install but cannot get graphics acceleration.
 
