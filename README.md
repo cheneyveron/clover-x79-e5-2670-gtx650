@@ -6,6 +6,8 @@
 
 2017/09/30: https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/chage-log-2017-09-30.md
 
+2017/10/10: Update apfs.efi to avoid log display at startup.
+
 I'd recommend you read the change logs before updating.
 
 # Hardware Specifications:
