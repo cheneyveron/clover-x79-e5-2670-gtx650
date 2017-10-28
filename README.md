@@ -8,6 +8,8 @@
 
 2017/10/10: Update apfs.efi to avoid log display at startup.
 
+2017/10/28: Add CPU SSDTs(from rampagedev.com) and Add BIOS Flush Tool.
+
 I'd recommend you read the change logs before updating.
 
 # Hardware Specifications:
