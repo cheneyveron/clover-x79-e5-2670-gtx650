@@ -2,6 +2,18 @@
 
 你们期待的中文版在[这里](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/读我.md).
 
+# Reward
+
+This project cost me money and time, so welcome to buy me a cup of tea for my continious maintainance if it helped you. The name list shows at blow.
+
+Note: I'm very busy at work so drop a issue and try to explore it yourself if you have problem.
+
+Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
+
+![支付宝](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/IMG_0112.jpg)
+
+![微信支付](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/IMG_0113.jpg)
+
 ## Change log:
 
 2017/09/30: https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/chage-log-2017-09-30.md
