@@ -10,9 +10,7 @@ Note: I'm very busy at work so drop a issue and try to explore it yourself if yo
 
 Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
-![支付宝](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/IMG_0112.jpg)
-
-![微信支付](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/IMG_0113.jpg)
+![Alipay and Wechat](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/IMG_0112.jpg)
 
 ## Change log:
 
