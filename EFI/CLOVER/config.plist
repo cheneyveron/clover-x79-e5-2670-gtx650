@@ -14,6 +14,8 @@
 			<dict>
 				<key>FixHeaders</key>
 				<true/>
+				<key>FixShutdown</key>
+				<true/>
 			</dict>
 			<key>Name</key>
 			<string>DSDT.aml</string>
@@ -131,13 +133,15 @@
 		<dict>
 			<key>Inject</key>
 			<string>5</string>
+			<key>ResetHDA</key>
+			<true/>
 		</dict>
 		<key>USB</key>
 		<dict>
+			<key>AddClockID</key>
+			<true/>
 			<key>FixOwnership</key>
-			<false/>
-			<key>Inject</key>
-			<false/>
+			<true/>
 		</dict>
 	</dict>
 	<key>GUI</key>
@@ -150,7 +154,7 @@
 					<key>Disabled</key>
 					<false/>
 					<key>FullTitle</key>
-					<string>Install High Sierra!!!!</string>
+					<string>Install Fusion!!!!</string>
 					<key>Hidden</key>
 					<false/>
 					<key>Ignore</key>
@@ -168,6 +172,26 @@
 					<key>VolumeType</key>
 					<string>Internal</string>
 				</dict>
+				<dict>
+					<key>Disabled</key>
+					<false/>
+					<key>FullTitle</key>
+					<string>Boot Fusion!!!</string>
+					<key>Hidden</key>
+					<false/>
+					<key>Ignore</key>
+					<false/>
+					<key>InjectKexts</key>
+					<true/>
+					<key>NoCaches</key>
+					<false/>
+					<key>Type</key>
+					<string>OSX</string>
+					<key>Volume</key>
+					<string>5B217E07-0634-4CCF-A1CD-69B4C440A64E</string>
+					<key>VolumeType</key>
+					<string>Internal</string>
+				</dict>
 			</array>
 		</dict>
 		<key>Mouse</key>
@@ -180,17 +204,6 @@
 			<false/>
 			<key>Speed</key>
 			<integer>8</integer>
-		</dict>
-		<key>Scan</key>
-		<dict>
-			<key>Entries</key>
-			<true/>
-			<key>Legacy</key>
-			<true/>
-			<key>Linux</key>
-			<true/>
-			<key>Tool</key>
-			<true/>
 		</dict>
 		<key>ScreenResolution</key>
 		<string>1920x1080</string>
