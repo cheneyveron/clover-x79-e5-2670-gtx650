@@ -20,6 +20,8 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 2017/10/28: Add CPU SSDTs(from rampagedev.com) and Add BIOS Flush Tool.
 
+2017/11/22: Fix `OsxAptioFixDrv` issue under 10.13.1
+
 I'd recommend you read the change logs before updating.
 
 # Hardware Specifications:

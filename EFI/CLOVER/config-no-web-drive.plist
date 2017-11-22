@@ -10,8 +10,58 @@
 			<false/>
 			<key>DropOEM_DSM</key>
 			<true/>
+			<key>Fixes</key>
+			<dict>
+				<key>FixHeaders</key>
+				<true/>
+			</dict>
 			<key>Name</key>
 			<string>DSDT.aml</string>
+			<key>Patches</key>
+			<array>
+				<dict>
+					<key>Comment</key>
+					<string>change EUSB to EH01</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					RVVTQg==
+					</data>
+					<key>Replace</key>
+					<data>
+					RUgwMQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Rename HDAS to HDEF</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					SERBUw==
+					</data>
+					<key>Replace</key>
+					<data>
+					SERFRg==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change USBE to EH02</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					VVNCRQ==
+					</data>
+					<key>Replace</key>
+					<data>
+					RUgwMg==
+					</data>
+				</dict>
+			</array>
 			<key>ReuseFFFF</key>
 			<false/>
 		</dict>
@@ -171,13 +221,11 @@
 		<false/>
 		<key>KernelCpu</key>
 		<false/>
-		<key>KernelHaswellE</key>
-		<false/>
-		<key>KernelIvyXCPM</key>
-		<false/>
 		<key>KernelLapic</key>
 		<false/>
 		<key>KernelPm</key>
+		<false/>
+		<key>KernelXCPM</key>
 		<false/>
 		<key>KextsToPatch</key>
 		<array>
