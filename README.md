@@ -100,7 +100,11 @@ E5-2670 C2 与 C1的唯一区别，就是C2支持VT-d技术（硬件虚拟化，
 
 安装完系统后，按照系统版本去attachments文件夹中寻找相应的解锁MSR的补丁，然后运行：
 
-`10.x aicpm patch.command` -> `caches_rebuild.command`
+`AICPM` -> `caches_rebuild.command`
+
+对于`El Capitan`系统，你需要运行：
+
+`AICPM`->`10.11 aicpm patch.command`->`caches_rebuild.command`
 
 否则的话，处理器频率将会锁定在 2.6 GHz 或者 1.2 GHz。
 
