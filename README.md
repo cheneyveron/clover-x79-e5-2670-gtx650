@@ -12,9 +12,9 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 ![支付宝与微信支付](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/IMG_0112.jpg)
 
-## 变更历史:
+## 变更记录:
 
-详细变更说明：[这里](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/变更说明.md)
+详细修改说明：[这里](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/变更说明.md)
 
 2017/10/10: 更新apfs.efi避免了开机界面打印Log。
 
@@ -22,11 +22,11 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 2017/11/22: 修复10.13.1下安装时的`OsxAptioFixDrv`错误。
 
-推荐你升级俺的最新版本之前，先看变更历史。
+2017/11/24: 更新了BIOS工具。
 
-# 配置说明:
+# 1 小白食用说明:
 
-## 主板: 华南 X79 V2
+## 1.1 主板: 华南 X79 V2
 
 主板版本 2.46
 
@@ -41,59 +41,108 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 - 禁用 USB ECHI
 - 开启 USB XHCI
 
-本配置文件中的 `x7947.ROM` 和 `SSDT` 非常珍贵，因为 CPU变频 和 驱动USB 需要用到他们。
+### 1.1.1 我能不能刷BIOS？
 
-## CPU: E5-2670 v1 C2
+如果你满足下面的条件：
 
-单CPU。
+- 华南金牌主板（418块钱左右的）
+- ATX版型（大版型）
+- 蓝色主板表面
 
-E2-2670 C2 与 C1的唯一区别，就是C2支持VT-d技术（硬件虚拟化，不是咱们说的VMware使用到的虚拟化技术），而C1不支持。咱们并不能用得到VT-d技术，所以就是白白多花钱了。而对于服务器来说，不支持VT-d的CPU就是有致命缺陷的，基本上白菜价就卖。
+那么你可以刷新BIOS。更详细的说明，和刷新方法不属于小白范畴，请阅读上面的“详细修改说明”。
 
-使用本配置文件中的`x7947.rom`文件刷新你的BIOS以后，直接安装系统处理器频率就有八档（1.2 / 1.9 / 2.3 / 2.6 / 3.0 / 3.1 / 3.2 / 3.3）。
+#### 1.1.1.1 我的CPU是xxx，显卡是xxx，可以刷吗?
 
-~~我正在努力实现更多档位的变频。~~一天内目标就达成啦：）
+可以。BIOS只与主板有关，与CPU、显卡、键鼠无关。
 
-不刷新BIOS的话，安装完系统以后你需要运行：
+#### 1.1.1.2 刷了之后还能装Windows/Linux吗?
 
-`10.12 aicpm patch.command` -> `caches_rebuild.command`
+可以。俺把DSDT中的USB命名/CPU部分规范了一下而已。
+
+### 1.1.2 我需不需要刷新BIOS？
+
+如果你同时满足下面两个条件：
+
+1. 使用NVIDIA的显卡，并且需要安装NVIDIA Web Driver。
+2. 打算安装macOS High Sierra
+
+那么推荐你刷新BIOS，否则CPU将无法变频。
+
+其中一项不满足，则**不需要**刷新BIOS。
+
+因为在High Sierra中，为了安装Web Driver你必须开启SIP。一旦开启SIP，你就不能给系统文件打补丁来解锁msr寄存器了。此寄存器不解锁，则CPU不能变频。
+
+好好理解一下上面这句话。至于SIP是什么，请阅读上面的“详细修改说明”。
+
+### 1.1.3 我和你的主板不完全一样怎么办？
+
+如果同是X79主板，用我的EFI问题都不大。
+
+### 1.1.4 我应该放置/自己修改DSDT.aml吗？
+
+如果你不清楚该不该放，那就不要放。
+
+在ACPI Patches中我已经添加了足够多的补丁，通常不需要额外再修改DSDT就可以正常安装启动了。
+
+而且，放了与你硬件不兼容的DSDT会导致一些难以预料的问题。
+
+## 1.2 CPU变频: E5-2670 v1
+
+如果E2-2670 C2 与 C1的唯一区别，就是C2支持VT-d技术（硬件虚拟化，不是咱们说的VMware使用到的虚拟化技术），而C1不支持。咱们并不能用得到VT-d技术，所以就是白白多花钱了。而对于服务器来说，不支持VT-d的CPU就是有致命缺陷的，基本上白菜价就卖。
+
+### 1.2.1 如果你刷新了BIOS：
+
+直接安装系统处理器频率就有八档（1.2 / 1.9 / 2.3 / 2.6 / 3.0 / 3.1 / 3.2 / 3.3）。
+
+### 1.2.2 如果你没有刷新BIOS：
+
+安装完系统后，按照系统版本去attachments文件夹中寻找相应的解锁MSR的补丁，然后运行：
+
+`10.x aicpm patch.command` -> `caches_rebuild.command`
 
 否则的话，处理器频率将会锁定在 2.6 GHz 或者 1.2 GHz。
 
-注意，对于 `El Capitan` 系统，你需要运行：
+### 1.2.2 如果你的CPU不是E5-2670 V1：
 
-`10.11 aicpm patch.command` -> `AICPMPatch` -> `caches_rebuild.command`
+上面这些步骤还是要做的，除此之外，你还需要将`EFI/Clover/ACPI/SSDT.aml`文件换成对应处理器的SSDT。
 
-## 显卡: GTX 650
+在`attachments/SSDT-1`中我搜集了一些SSDT，它们未必能用，如果运气不好的话你就需要自己用`ssdtGen.sh`来生成了。
 
-这是一张免驱卡。
+在这里感谢 rampagedev.com 提供的SSDT。
 
-使用 `Lilu.kext` 与 `NvidiaGraphicsFixup.kext` 这俩驱动可以解决“显示器无输出”的问题。
+## 1.3 NVIDIA显卡
 
-将 SMIBIOS 型号设置成 MacPro6,1 以后显卡就可以在 1 到 5 GHz 之间变频了。
+请将`config-nvidia-card.plist`改名为`config.plist`。
 
-Dota2 十分流畅，我已经很满意了 :)
+### 1.3.1 显示器无输出
 
-## 显卡2: GTX 1050TI
+我在`EFI/Clover/kexts/Other`中使用了 `Lilu.kext` 与 `NvidiaGraphicsFixup.kext` 这俩驱动配合解决“显示器无输出”的问题。你不用任何操作。
+
+### 1.3.2 图形加速
+
+如果装好了系统却没有图形加速效果，安装Web Driver即可。
 
 **装好WEB DRIVER以后切记不要安装系统更新！！！**
 
-安装相应的 Web Driver 以后就可以驱动了。
+在 High Sierra 中，你得开启 SIP 以后才能安装上 Web Driver。如果你不开启 SIP ，也可以强行继续安装，但是装好以后没有图形加速效果。
 
-但是在 High Sierra 中，你得开启 SIP 以后才能安装上 Web Driver。如果你不开启 SIP ，也可以强行继续安装，但是装好以后没有图形加速效果。
+### 1.3.3 高清启动界面
 
-~~在`drivers64UEFI `中添加`CsmVideoDxe-64.efi` 这个驱动以后 Clover 的系统选择菜单就能以 1080P 的分辨率显示了。~~
+我在ROM中添加了CsmVideoDxe模块，如果你刷新了BIOS，那么什么都不用做，享受即可。
 
-~~但也有坏处，这样会拖慢启动时间大约4秒钟。~~
+如果不刷新BIOS，那么手动将`CsmVideoDxe.efi`添加到`EFI/Clover/drivers64UEFI`文件夹中即可。
 
-~~如果你不在乎启动界面的分辨率而在乎启动速度，那就删了它。~~
+## 1.4 AMD显卡
 
-现在ROM中直接添加了CsmVideoDxe模块，所以现在没有性能问题也能实现启动界面的1080P输出了。
+请将`config-amd-card.plist`改名为`config.plist`，然后删除`NvidiaGraphicsFixup.kext`。
 
-## 网卡: Rtl8100/8600
+俺没有AMD显卡，所以只能靠你自己了。所幸，AMD的显卡大都很好配置，至少不会因为安装了不当的驱动导致系统崩溃。
 
-正常工作。
+## 1.5 网卡: Rtl8100/8600
 
-## 声卡: Reltek ALC662
+就是它驱动起来的网卡：`kexts/other/RealtekRTL8111.kext`。
+
+## 1.6 声卡: Reltek ALC662 V3
 
 VoodooHDA 2.8.9：只支持双声道。
 
@@ -101,35 +150,27 @@ VoodooHDA 2.9.0：支持5.1声道。
 
 考虑到多数人（比如我）没有5.1音响，所以默认是2.8.9。
 
-# 系统兼容性:
+PC Beta上已经有小伙伴们使用AppleALC驱动起来了，有兴趣的可以自己摸索。
+
+# 2 macOS兼容性:
 
 - 10.10 Yosemite: 未测试.
 
-- 10.11 El Capitan: 未测试.
+- 10.11 El Capitan: 良好.
 
-- 10.12.6 macOS Sierra: 良好.
+- 10.12 macOS Sierra: 良好.
 
-- 10.13 macOS High Sierra: 良好.
+- 10.13.1 macOS High Sierra: 良好.
 
-# Clover 小提示:
+# 3 其他常见问题
 
-## 更新时请务必也更新BOOTX64.efi和boot
-
-## Kexts:
-
-推荐的驱动我都放在 `kexts/other` 中了, 有一些可选的驱动在 `kexts/Other_Optional` 中。
-
-## driver64UEFI:
-
-推荐的 UEFI驱动 在 `drivers64UEFI` 中, 可选的驱动在 `driver64UEFI_Optional` 中。一般情况下，除非你知道你明白它们的功能，否则不要动它们。
-
-## Fusion Drive:
+## 3.1 Fusion Drive/Raid如何配置:
 
 见 [这个指南](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/fusion-drive-设置.md).
 
-## 解决 10.13 AppleACPIPlatform(MACH Reboot) 问题:
+## 3.2 10.13 AppleACPIPlatform(MACH Reboot)
 
-使用俺上传的 BIOS文件 更新你的BIOS，或者不更新BIOS，而是用俺的 DSDT 即可。
+在本EFI中附带的两个plist中，`ACPI -> Patch`部分有四个补丁名字为`CUU0`到`CUU3`，将他们添加到自己的配置文件中即可。
 
 想看看解决过程？
 
@@ -139,7 +180,27 @@ VoodooHDA 2.9.0：支持5.1声道。
 
 [Insanelymac](http://www.insanelymac.com/forum/topic/326200-new-possibilities-for-x79-appleacpiplatform-panic)(英文).
 
-# 参考:
+## 3.3 我能更新kexts吗？
+
+其他kexts随便更新，但是`lilu.kext`更新后需要重新编译CPUFriend才行。
+
+## 3.4 Failed getting nvram
+
+原因：你用了不适合的DSDT。
+
+解决方法：删掉`EFI/Clover/ACPI/patched/DSDT.aml`。
+
+## 3.5 Freeing low memory (up tp 0x20000000)...
+
+原因：CPU在释放2MB内存时卡死。
+
+解决方法：尝试将`drivers64UEFI/OsxAptioFix2Drv-free2000.efi`与`driver64UEFI_Optional/OsxAptioFix2Drv-64.efi`互换。
+
+## 3.6 OsxAptioFixDrv...
+
+兄dei，你该更新俺的新版EFI了。
+
+# 4 参考:
 
 我无耻的参考了:
 
