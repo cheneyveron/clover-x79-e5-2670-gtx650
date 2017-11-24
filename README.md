@@ -47,7 +47,7 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 - 华南金牌主板（418块钱左右的）
 - ATX版型（大版型）
-- 蓝色主板表面
+- 蓝色内存插槽
 
 那么你可以刷新BIOS。更详细的说明，和刷新方法不属于小白范畴，请阅读上面的“详细修改说明”。
 
@@ -78,7 +78,7 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 如果同是X79主板，用我的EFI问题都不大。
 
-### 1.1.4 我应该放置/自己修改DSDT.aml吗？
+### 1.1.4 我应该放某个DSDT.aml吗？
 
 如果你不清楚该不该放，那就不要放。
 
@@ -86,9 +86,11 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 而且，放了与你硬件不兼容的DSDT会导致一些难以预料的问题。
 
+不过，SSDT还是要可以放的。
+
 ## 1.2 CPU变频: E5-2670 v1
 
-如果E2-2670 C2 与 C1的唯一区别，就是C2支持VT-d技术（硬件虚拟化，不是咱们说的VMware使用到的虚拟化技术），而C1不支持。咱们并不能用得到VT-d技术，所以就是白白多花钱了。而对于服务器来说，不支持VT-d的CPU就是有致命缺陷的，基本上白菜价就卖。
+E5-2670 C2 与 C1的唯一区别，就是C2支持VT-d技术（硬件虚拟化，不是咱们说的VMware使用到的虚拟化技术），而C1不支持。咱们并不能用得到VT-d技术，所以就是白白多花钱了。而对于服务器来说，不支持VT-d的CPU就是有致命缺陷的，基本上白菜价就卖。
 
 ### 1.2.1 如果你刷新了BIOS：
 
@@ -110,7 +112,9 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 在这里感谢 rampagedev.com 提供的SSDT。
 
-## 1.3 NVIDIA显卡
+更多关于变频的消息，也请阅读上面的“详细修改说明”。
+
+## 1.3 对于NVIDIA显卡
 
 请将`config-nvidia-card.plist`改名为`config.plist`。
 
@@ -130,13 +134,13 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 我在ROM中添加了CsmVideoDxe模块，如果你刷新了BIOS，那么什么都不用做，享受即可。
 
-如果不刷新BIOS，那么手动将`CsmVideoDxe.efi`添加到`EFI/Clover/drivers64UEFI`文件夹中即可。
+如果不刷新BIOS，那么手动将`EFI/Clover/driver64UEFI_Optional`下的`CsmVideoDxe.efi`添加到`EFI/Clover/drivers64UEFI`文件夹中即可。
 
-## 1.4 AMD显卡
+## 1.4 对于AMD显卡
 
 请将`config-amd-card.plist`改名为`config.plist`，然后删除`NvidiaGraphicsFixup.kext`。
 
-俺没有AMD显卡，所以只能靠你自己了。所幸，AMD的显卡大都很好配置，至少不会因为安装了不当的驱动导致系统崩溃。
+俺没有AMD显卡，所以你只能靠你自己了。所幸，AMD的显卡大都很好配置，至少不会因为安装了不当的驱动导致系统崩溃。
 
 ## 1.5 网卡: Rtl8100/8600
 
@@ -194,7 +198,7 @@ PC Beta上已经有小伙伴们使用AppleALC驱动起来了，有兴趣的可�
 
 原因：CPU在释放2MB内存时卡死。
 
-解决方法：尝试将`drivers64UEFI/OsxAptioFix2Drv-free2000.efi`与`driver64UEFI_Optional/OsxAptioFix2Drv-64.efi`互换。
+解决方法：先重启试试。如果不行，就尝试将`drivers64UEFI/OsxAptioFix2Drv-free2000.efi`与`driver64UEFI_Optional/OsxAptioFix2Drv-64.efi`互换。
 
 ## 3.6 OsxAptioFixDrv...
 
