@@ -14,15 +14,13 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 ## 变更记录:
 
-详细修改说明：[这里](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/变更说明.md)
-
 2017/12/18: VoodooHDA换成了AppleALC；更新lilu、CPUFriend；
 
 2017/11/24: 更新了BIOS工具。
 
 2017/11/22: 修复10.13.1下安装时的`OsxAptioFixDrv`错误。
 
-2017/10/28: 添加多种CPU的变频SSDT，添加BIOS刷新工具。感谢rampagedev.com。
+2017/10/28: 添加多种CPU的变频SSDT，添加BIOS刷新工具。
 
 2017/10/10: 更新apfs.efi避免了开机界面打印Log。
 
@@ -34,7 +32,7 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 **BIOS版本 2.47**
 
-四叶草 版本 4292
+四叶草 版本 4359
 
 所有操作前，务必在BIOS中:
 
@@ -154,13 +152,17 @@ E5-2670 C2 与 C1的唯一区别，就是C2支持VT-d技术（硬件虚拟化，
 
 ## 1.6 声卡: Reltek ALC662 V3
 
+为了更好的音质，使用了AppleALC驱动。关键Kext为：
+
+`Lilu.kext`、`AppleALC.kext`、`HDAEnabler.kext`。
+
+如果有爆音，尝试在 Clover Configurator -> Boot 中设置为`darkwake=no`。
+
+如果不是ALC662 V3的声卡，可以使用`EFI/Clover/kexts/Optional`中的`VoodooHDA`万能声卡驱动。其中：
+
 VoodooHDA 2.8.9：只支持双声道。
 
 VoodooHDA 2.9.0：支持5.1声道。
-
-考虑到多数人（比如我）没有5.1音响，所以默认是2.8.9。
-
-PC Beta上已经有小伙伴们使用AppleALC驱动起来了，有兴趣的可以自己摸索。
 
 # 2 macOS兼容性:
 
@@ -194,6 +196,16 @@ PC Beta上已经有小伙伴们使用AppleALC驱动起来了，有兴趣的可�
 
 其他kexts随便更新，但是`lilu.kext`更新后需要更新CPUFriend.kext、重新生成对应的CPUFriendProvider.kext、更新AppleALC才行。
 
+### 3.3.1 如何更新 AppleALC:
+
+下载新版的`lilu.kext`、`AppleALC.kext`替换`EFI/Clover/kexts`中的即可。
+
+### 3.3.2 如何更新 CPUFriend:
+
+1. 下载新版的`CPUFriend.kext`和CPUFriend的Git仓库
+2. 运行`ResourceConverter.sh`，指定`X79PlatformPlugin.kext`中的`Mac-F60DEB81FF30ACF6.plist`来生成`CPUFriendProvider.kext`
+3. 替换上去即可
+
 ## 3.4 Failed getting nvram
 
 原因：你用了不适合的DSDT。
@@ -210,9 +222,7 @@ PC Beta上已经有小伙伴们使用AppleALC驱动起来了，有兴趣的可�
 
 兄dei，你该更新俺的新版EFI了。
 
-# 4 参考:
-
-我无耻的参考了:
+# 4 致谢:
 
 远景论坛: http://bbs.pcbeta.com/viewthread-1720390-1-1.html
 
@@ -220,6 +230,12 @@ PC Beta上已经有小伙伴们使用AppleALC驱动起来了，有兴趣的可�
 
 Tonymacx86.com: https://www.tonymacx86.com/threads/black-screen-with-macpro-6-1-or-imac-15-or-imac-17-system-definition.183113/
 
-还有整个的 bbs.pcbeta.com 与 insanelymac.com
+感谢 @**zouyanggary** 和 pcbeta 的 **kaeserlin** 提供的AppleALC方面的讯息和帮助。
+
+感谢 rampagedev.com 提供的 SSDT 。
+
+感谢 @**flipphos** @**zouyanggary** @**jameszhang18910780315** 三位网友提供的BIOS方面的资讯。
+
+还有整个的 bbs.pcbeta.com 与 insanelymac.com 。
 
 非常感激前辈们的贡献。
