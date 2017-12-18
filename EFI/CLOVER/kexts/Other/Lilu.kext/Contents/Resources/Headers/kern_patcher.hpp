@@ -9,6 +9,7 @@
 #define kern_patcher_hpp
 
 #include <Headers/kern_config.hpp>
+#include <Headers/kern_compat.hpp>
 #include <Headers/kern_util.hpp>
 #include <Headers/kern_mach.hpp>
 #include <Headers/kern_disasm.hpp>
@@ -38,7 +39,9 @@ public:
 		MemoryIssue,
 		MemoryProtection,
 		PointerRange,
-		AlreadyDone
+		AlreadyDone,
+		LockError,
+		Unsupported
 	};
 	
 	/**
@@ -64,6 +67,12 @@ public:
 	void deinit();
 
 	/**
+	 *  Kernel write lock used for performing kernel & kext writes to disable cpu preemption
+	 *  See MachInfo::setKernelWriting
+	 */
+	EXPORT static IOSimpleLock *kernelWriteLock;
+	
+	/**
 	 *  Kext information
 	 */
 	struct KextInfo;
@@ -71,27 +80,41 @@ public:
 #ifdef LILU_KEXTPATCH_SUPPORT
 	struct KextInfo {
 		static constexpr size_t Unloaded {0};
-		const char *id;
-		const char **paths;
-		size_t pathNum;
-		bool loaded; // invoke for kext if it is already loaded
-		bool reloadable; // allow the kext to unload and get patched again
-		bool user[6];
-		size_t loadIndex; // Updated after loading
+		enum SysFlags : size_t {
+			Loaded,      // invoke for kext if it is already loaded
+			Reloadable,  // allow the kext to unload and get patched again
+			Disabled,    // do not load this kext (formerly achieved pathNum = 0, this no longer works)
+			FSOnly,      // do not use prelinkedkernel (kextcache) as a symbol source
+			FSFallback,  // perform fs fallback if kextcache failed
+			Reserved,
+			SysFlagNum,
+			UserFlagNum = sizeof(size_t)-SysFlagNum
+		};
+		static_assert(UserFlagNum > 0, "There should be at least one user flag");
+		const char *id {nullptr};
+		const char **paths {nullptr};
+		size_t pathNum {0};
+		bool sys[SysFlagNum] {};
+		bool user[UserFlagNum] {};
+		size_t loadIndex {Unloaded}; // Updated after loading
 	};
+
+	static_assert(sizeof(KextInfo) == 5 * sizeof(size_t), "KextInfo is no longer ABI compatible");
 #endif /* LILU_KEXTPATCH_SUPPORT */
 
 	/**
 	 *  Loads and stores kinfo information locally
 	 *
-	 *  @param id       kernel item identifier
-	 *  @param paths    item filesystem path array
-	 *  @param num      number of path entries
-	 *  @param isKernel kinfo is kernel info
+	 *  @param id         kernel item identifier
+	 *  @param paths      item filesystem path array
+	 *  @param num        number of path entries
+	 *  @param isKernel   kinfo is kernel info
+	 *  @param fsonly     avoid using prelinkedkernel for kexts
+	 *  @param fsfallback fallback to reading from filesystem if prelink failed
 	 *
 	 *  @return loaded kinfo id
 	 */
-	EXPORT size_t loadKinfo(const char *id, const char * const paths[], size_t num=1, bool isKernel=false);
+	EXPORT size_t loadKinfo(const char *id, const char * const paths[], size_t num=1, bool isKernel=false, bool fsonly=false, bool fsfallback=false);
 
 #ifdef LILU_KEXTPATCH_SUPPORT
 	/**
@@ -148,7 +171,12 @@ public:
 	 *  Hook kext loading and unloading to access kexts at early stage
 	 */
 	EXPORT void setupKextListening();
-	
+
+	/**
+	 *  Free file buffer resources and effectively make prelinked kext loading impossible
+	 */
+	void freeFileBufferResources();
+
 	/**
 	 *  Activates monitoring functions if necessary
 	 */
@@ -220,10 +248,11 @@ public:
 	 *  @param to           routed function
 	 *  @param buildWrapper create entrance wrapper
 	 *  @param kernelRoute  kernel change requiring memory protection changes and patch reverting at unload
+	 *  @param revertible   patches could be reverted
 	 *
 	 *  @return wrapper pointer or 0 on success
 	 */
-	EXPORT mach_vm_address_t routeFunction(mach_vm_address_t from, mach_vm_address_t to, bool buildWrapper=false, bool kernelRoute=true);
+	EXPORT mach_vm_address_t routeFunction(mach_vm_address_t from, mach_vm_address_t to, bool buildWrapper=false, bool kernelRoute=true, bool revertible=true);
 	
 	/**
 	 *  Route block at assembly level
@@ -299,9 +328,9 @@ private:
 #endif /* LILU_KEXTPATCH_SUPPORT */
 	
 	/**
-	 *  Local disassmebler instance, initialised on demand
+	 *  Kernel prelink image in case prelink is used
 	 */
-	Disassembler disasm;
+	MachInfo *prelinkInfo {nullptr};
 
 	/**
 	 *  Loaded kernel items
@@ -347,20 +376,21 @@ private:
 	 *  Possible kernel paths
 	 */
 #ifdef LILU_COMPRESSION_SUPPORT
-	static constexpr size_t kernelPathsNum {6};
-#else
-	static constexpr size_t kernelPathsNum {4};
-#endif /* LILU_COMPRESSION_SUPPORT */
-	const char *kernelPaths[kernelPathsNum] {
-		"/mach_kernel",
-		"/System/Library/Kernels/kernel",	//since 10.10
-		"/System/Library/Kernels/kernel.debug",
-		"/System/Library/Kernels/kernel.development",
-#ifdef LILU_COMPRESSION_SUPPORT
+	const char *prelinkKernelPaths[6] {
 		"/System/Library/Caches/com.apple.kext.caches/Startup/kernelcache",
-		"/System/Library/PrelinkedKernels/prelinkedkernel"
-#endif /* LILU_COMPRESSION_SUPPORT */
-		
+		"/System/Library/PrelinkedKernels/prelinkedkernel",
+		"/System/Library/Caches/com.apple.kext.caches/Startup/kernelcache.debug",
+		"/System/Library/Caches/com.apple.kext.caches/Startup/kernelcache.development",
+		"/System/Library/PrelinkedKernels/prelinkedkernel.debug",
+		"/System/Library/PrelinkedKernels/prelinkedkernel.development"
+	};
+#endif
+
+	const char *kernelPaths[4] {
+		"/System/Library/Kernels/kernel",	//since 10.10
+		"/mach_kernel",
+		"/System/Library/Kernels/kernel.debug",
+		"/System/Library/Kernels/kernel.development"
 	};
 };
 

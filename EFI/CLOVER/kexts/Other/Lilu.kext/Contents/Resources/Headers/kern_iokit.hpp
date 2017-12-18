@@ -39,13 +39,13 @@ namespace WIOKit {
 			auto data = OSDynamicCast(OSData, obj);
 			if (data && data->getLength() == sizeof(T)) {
 				value = *static_cast<const T *>(data->getBytesNoCopy());
-				DBGLOG("iokit @ getOSData %s has %llX value", name, static_cast<uint64_t>(value));
+				DBGLOG("iokit", "getOSData %s has %llX value", name, static_cast<uint64_t>(value));
 				return true;
 			} else {
-				SYSLOG("iokit @ getOSData %s has unexpected format", name);
+				SYSLOG("iokit", "getOSData %s has unexpected format", name);
 			}
 		} else {
-			DBGLOG("iokit @ getOSData %s was not found", name);
+			DBGLOG("iokit", "getOSData %s was not found", name);
 		}
 		return false;
 	}
@@ -86,7 +86,7 @@ namespace WIOKit {
 	struct ComputerModel {
 		enum {
 			ComputerInvalid = 0x0,
-			ComputerLaptop = 0x1,
+			ComputerLaptop  = 0x1,
 			ComputerDesktop = 0x2,
 			ComputerAny = ComputerLaptop | ComputerDesktop
 		};
@@ -138,6 +138,13 @@ namespace WIOKit {
 	 *  @return entry pointer (must NOT be released) or nullptr (on failure or in proc mode)
 	 */
 	EXPORT IORegistryEntry *findEntryByPrefix(IORegistryEntry *entry, const char *prefix, const IORegistryPlane *plane, bool (*proc)(void *, IORegistryEntry *)=nullptr, bool brute=false, void *user=nullptr);
+
+	/**
+	 *  Check if we are using prelinked kernel/kexts or not
+	 *
+	 *  @return true when confirmed that we definitely are
+	 */
+	EXPORT bool usingPrelinkedCache();
 }
 
 #endif /* kern_iokit_hpp */

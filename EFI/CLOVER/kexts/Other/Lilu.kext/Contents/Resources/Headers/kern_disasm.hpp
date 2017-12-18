@@ -8,13 +8,15 @@
 #ifndef kern_disasm_hpp
 #define kern_disasm_hpp
 
+#include <Headers/kern_config.hpp>
+#include <Headers/kern_util.hpp>
+
+#ifdef LILU_ADVANCED_DISASSEMBLY
 #ifndef CAPSTONE_HAS_OSXKERNEL
 #define CAPSTONE_HAS_OSXKERNEL 1
 #endif
-
-#include <Headers/kern_config.hpp>
-#include <Headers/kern_util.hpp>
 #include <Headers/capstone/capstone.h>
+#endif /* LILU_ADVANCED_DISASSEMBLY */
 
 #include <sys/types.h>
 #include <mach/vm_types.h>
@@ -37,20 +39,6 @@ class Disassembler {
 public:
 
 	/**
-	 *  Initialise dissassembling framework
-	 *
-	 *  @param detailed  debugging output necessity
-	 *
-	 *  @return true on success
-	 */
-	EXPORT bool init(bool detailed=false);
-	
-	/**
-	 *  Deinitialise dissassembling framework, must be called regardless of the init error
-	 */
-	EXPORT void deinit();
-	
-	/**
 	 *  Return the real instruction size contained within min bytes
 	 *  Unlike instructionSize this uses HDE engine and at the cost of reduced compatibility it is much faster
 	 *
@@ -60,7 +48,23 @@ public:
 	 *  @return instruction size >= min on success or 0
 	 */
 	EXPORT static size_t quickInstructionSize(mach_vm_address_t ptr, size_t min);
+
+#ifdef LILU_ADVANCED_DISASSEMBLY
 	
+	/**
+	 *  Initialise advanced dissassembling framework
+	 *
+	 *  @param detailed  debugging output necessity
+	 *
+	 *  @return true on success
+	 */
+	EXPORT bool init(bool detailed=false);
+	
+	/**
+	 *  Deinitialise advanced dissassembling framework, must be called regardless of the init error
+	 */
+	EXPORT void deinit();
+
 	/**
 	 *  Reads size bytes from addr and disassembles them.
 	 *
@@ -148,6 +152,8 @@ public:
 	 *  @return direct address of pattern start on success, else 0
 	 */
 	EXPORT mach_vm_address_t disasmSig(mach_vm_address_t addr, evector<DisasmSig *, DisasmSig::deleter> &sig, size_t num, size_t lookup_size);
+	
+#endif /* LILU_ADVANCED_DISASSEMBLY */
 };
 
 #endif /* kern_disasm_hpp */

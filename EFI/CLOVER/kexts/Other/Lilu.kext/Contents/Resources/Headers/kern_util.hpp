@@ -9,10 +9,13 @@
 #define kern_util_hpp
 
 #include <Headers/kern_config.hpp>
+#include <Headers/kern_compat.hpp>
 
 #include <libkern/libkern.h>
+#include <libkern/OSDebug.h>
 #include <mach/vm_types.h>
 #include <mach/vm_prot.h>
+#include <sys/proc.h>
 #include <IOKit/IOLib.h>
 
 #define xStringify(a) Stringify(a)
@@ -21,29 +24,158 @@
 #define xConcat(a, b) Concat(a, b)
 #define Concat(a, b) a ## b
 
+/**
+ *  Prefix name with your plugin name (to ease symbolication and avoid conflicts)
+ */
 #define ADDPR(a) xConcat(xConcat(PRODUCT_NAME, _), a)
 
+/**
+ *  Debugging state exported for your plugin
+ */
 extern bool ADDPR(debugEnabled);
-// Kernel version major
+
+/**
+ *  Kernel version major
+ */
 extern const int version_major;
-// Kernel version minor
+
+/**
+ *  Kernel version minor
+ */
 extern const int version_minor;
-// Kernel map
+
+/**
+ *  Kernel map
+ */
 extern vm_map_t kernel_map;
 
-#define SYSLOG(str, ...) IOLog( xStringify(PRODUCT_NAME) ": " str "\n", ## __VA_ARGS__)
+/**
+ *  Kernel proc
+ */
+extern proc_t kernproc;
+
+/**
+ *  Conditional logging to system log prefixed with you plugin name
+ *
+ *  @param cond  precondition
+ *  @param str   printf-like string
+ */
+#define SYSLOG_COND(cond, module, str, ...)                                                          \
+	do {                                                                                             \
+		if (cond)                                                                                    \
+			IOLog( "%s%10s" str "\n", xStringify(PRODUCT_NAME) ": ", module " @ ", ## __VA_ARGS__);  \
+	} while (0)
+
+/**
+ *  Write to system log prefixed with you plugin name
+ *
+ *  @param module log module
+ *  @param str    printf-like string
+ */
+#define SYSLOG(module, str, ...) SYSLOG_COND(true, module, str, ## __VA_ARGS__)
+
+/**
+ *  Conditional tracing to system log prefixed with you plugin name
+ *
+ *  @param cond   precondition
+ *  @param module log module
+ *  @param str    printf-like string
+ */
+#define SYSTRACE_COND(cond, module, str, ...)                                                                        \
+	do {                                                                                                             \
+		if (cond)                                                                                                    \
+			OSReportWithBacktrace( "%s%10s" str "\n", xStringify(PRODUCT_NAME) ": ", module " @ ", ## __VA_ARGS__);  \
+	} while (0)
+
+/**
+ *  Write call trace to system log prefixed with you plugin name
+ *
+ *  @param module log module
+ *  @param str    printf-like string
+ */
+#define SYSTRACE(module, str, ...) SYSTRACE_COND(true, module, str, ## __VA_ARGS__)
+
+/**
+ *  Conditional panic prefixed with you plugin name
+ *
+ *  @param cond   precondition
+ *  @param module log module
+ *  @param str    printf-like string
+ */
+#define PANIC_COND(cond, module, str, ...)                                                             \
+	do {                                                                                               \
+		if (cond)                                                                                      \
+			(panic)( "%s%10s" str "\n", xStringify(PRODUCT_NAME) ": ", module " @ ", ## __VA_ARGS__);  \
+	} while (0)
+
+/**
+ *  Cause immediate kernel panic prefixed with you plugin name
+ *
+ *  @param module log module
+ *  @param str    printf-like string
+ */
+#define PANIC(module, str, ...)  PANIC_COND(true, module, str, ## __VA_ARGS__)
 
 #ifdef DEBUG
-#define DBGLOG(str, ...)													\
-	do {																	\
-		if (ADDPR(debugEnabled))											\
-			SYSLOG( "(DEBUG) " str, ## __VA_ARGS__);						\
-	} while(0)
-#else
-#define DBGLOG(str, ...) do { } while(0)
+
+/**
+ *  Conditional debug logging to system log prefixed with you plugin name
+ *
+ *  @param cond   precondition
+ *  @param module log module
+ *  @param str    printf-like string
+ */
+#define DBGLOG_COND(cond, module, str, ...)                                                     \
+	do {                                                                                        \
+		SYSLOG_COND(ADDPR(debugEnabled) && (cond), module, "%s" str, "(DBG) ", ## __VA_ARGS__); \
+	} while (0)
+
+/**
+ *  Write debug message to system log prefixed with you plugin name
+ *
+ *  @param module log module
+ *  @param str    printf-like string
+ */
+#define DBGLOG(module, str, ...) DBGLOG_COND(true, module, str, ## __VA_ARGS__)
+
+/**
+ *  Conditional debug tracing to system log prefixed with you plugin name
+ *
+ *  @param cond   precondition
+ *  @param module log module
+ *  @param str    printf-like string
+ */
+#define DBGTRACE_COND(cond, module, str, ...)                                                     \
+	do {                                                                                          \
+		SYSTRACE_COND(ADDPR(debugEnabled) && (cond), module, "%s" str, "(DBG) ", ## __VA_ARGS__); \
+	} while (0)
+
+/**
+ *  Write debug call trace to system log prefixed with you plugin name
+ *
+ *  @param module log module
+ *  @param str    printf-like string
+ */
+#define DBGTRACE(module, str, ...) DBGTRACE_COND(true, module, str, ## __VA_ARGS__)
+
+#else /* DEBUG */
+
+#define DBGLOG_COND(module, str, ...) do { } while (0)
+#define DBGLOG(module, str, ...) do { } while (0)
+#define DBGTRACE_COND(module, str, ...) do { } while (0)
+#define DBGTRACE(module, str, ...) do { } while (0)
+
 #endif
 
+/**
+ *  Export function or symbol for linking
+ */
 #define EXPORT __attribute__((visibility("default")))
+
+/**
+ *  Remove padding between fields
+ */
+#define PACKED __attribute__((packed))
 
 /**
  *  Two-way substring search
@@ -85,22 +217,22 @@ extern "C" {
 	void *kern_os_malloc(size_t size);
 	void *kern_os_calloc(size_t num, size_t size);
 	void kern_os_free(void *addr);
-	void kern_os_cfree(void *addr);
 	void *kern_os_realloc(void *addr, size_t nsize);
+	EXPORT void lilu_os_free(void *addr);
 }
 
 /**
  *  Known kernel versions
  */
 enum KernelVersion {
-	SnowLeopard = 10,
-	Lion = 11,
-	MountainLion = 12,
-	Mavericks = 13,
-	Yosemite = 14,
-	ElCapitan = 15,
-	Sierra = 16,
-	HighSierra = 17
+	SnowLeopard   = 10,
+	Lion          = 11,
+	MountainLion  = 12,
+	Mavericks     = 13,
+	Yosemite      = 14,
+	ElCapitan     = 15,
+	Sierra        = 16,
+	HighSierra    = 17
 };
 
 /**
@@ -143,12 +275,23 @@ constexpr size_t parseModuleVersion(const char *version) {
 namespace Buffer {
 	template <typename T>
 	T *create(size_t size) {
-		return new T[size];
+		return static_cast<T *>(kern_os_malloc(sizeof(T) * size));
+	}
+	
+	template <typename T>
+	bool resize(T *&buf, size_t size) {
+		auto nbuf = static_cast<T *>(kern_os_realloc(buf, sizeof(T) * size));
+		if (nbuf) {
+			buf = nbuf;
+			return true;
+		}
+		
+		return false;
 	}
 	
 	template <typename T>
 	void deleter(T *buf) {
-		delete[] buf;
+		lilu_os_free(buf);
 	}
 }
 
@@ -217,6 +360,7 @@ struct ppair {
 /**
  *  Embedded vector-like container
  *  You muse call deinit before destruction
+ *  Ugh, someone, please, port libc++ to XNU...
  *
  *  @param T        held type
  *  @param deleter  type destructor
@@ -225,6 +369,7 @@ template <typename T, void (*deleter)(T)=emptyDeleter<T>>
 class evector {
 	T *ptr {nullptr};
 	size_t cnt {0};
+	size_t rsvd {0};
 public:
 	/**
 	 *  Return evector size
@@ -277,6 +422,27 @@ public:
 	}
 	
 	/**
+	 *  Reserve memory for at least N elements
+	 *
+	 *  @param num  amount of elements
+	 *
+	 *  @return elements ptr or null
+	 */
+	T *reserve(size_t num) {
+		if (rsvd < num) {
+			T *nPtr = static_cast<T *>(kern_os_realloc(ptr, num * sizeof(T)));
+			if (nPtr) {
+				ptr = nPtr;
+				rsvd = num;
+			} else {
+				return nullptr;
+			}
+		}
+		
+		return ptr;
+	}
+	
+	/**
 	 *  Erase evector element
 	 *
 	 *  @param index element index
@@ -284,22 +450,14 @@ public:
 	 *  @return true on success
 	 */
 	bool erase(size_t index) {
-		// Free the memory
 		deleter(ptr[index]);
-		// Shift the items
-		for (size_t i = index+1; i < cnt; i++) ptr[i-1] = ptr[i];
-		// Reduce the memory used
-		cnt--;
+		if (--cnt != index)
+			lilu_os_memmove(&ptr[index], &ptr[index + 1], (cnt - index) * sizeof(T));
+
 		if (cnt == 0) {
 			kern_os_free(ptr);
 			ptr = nullptr;
-		} else {
-			T *nPtr = static_cast<T *>(kern_os_realloc(ptr, (cnt)*sizeof(T)));
-			if (nPtr) {
-				ptr = nPtr;
-			} else {
-				return false;
-			}
+			rsvd = 0;
 		}
 
 		return true;
@@ -313,15 +471,13 @@ public:
 	 *  @return true on success
 	 */
 	bool push_back(T &element) {
-		T *nPtr = static_cast<T *>(kern_os_realloc(ptr, (cnt+1)*sizeof(T)));
-		if (nPtr) {
-			ptr = nPtr;
+		if (reserve(cnt+1)) {
 			ptr[cnt] = element;
 			cnt++;
 			return true;
 		}
 		
-		SYSLOG("evector @ insertion failure");
+		SYSLOG("evector", "insertion failure");
 		return false;
 	}
 	
@@ -333,15 +489,13 @@ public:
 	 *  @return true on success
 	 */
 	bool push_back(T &&element) {
-		T *nPtr = static_cast<T *>(kern_os_realloc(ptr, (cnt+1)*sizeof(T)));
-		if (nPtr) {
-			ptr = nPtr;
+		if (reserve(cnt+1)) {
 			ptr[cnt] = element;
 			cnt++;
 			return true;
 		}
 		
-		SYSLOG("evector @ insertion failure");
+		SYSLOG("evector", "insertion failure");
 		return false;
 	}
 	
@@ -354,12 +508,11 @@ public:
 	 */
 	void deinit() {
 		if (ptr) {
-			for (size_t i = 0; i < cnt; i++) {
+			for (size_t i = 0; i < cnt; i++)
 				deleter(ptr[i]);
-			}
 			kern_os_free(ptr);
 			ptr = nullptr;
-			cnt = 0;
+			cnt = rsvd = 0;
 		}
 	}
 };

@@ -16,13 +16,15 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 详细修改说明：[这里](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/变更说明.md)
 
-2017/10/10: 更新apfs.efi避免了开机界面打印Log。
+2017/12/18: VoodooHDA换成了AppleALC；更新lilu、CPUFriend；
 
-2017/10/28: 添加多种CPU的变频SSDT，添加BIOS刷新工具。感谢rampagedev.com。
+2017/11/24: 更新了BIOS工具。
 
 2017/11/22: 修复10.13.1下安装时的`OsxAptioFixDrv`错误。
 
-2017/11/24: 更新了BIOS工具。
+2017/10/28: 添加多种CPU的变频SSDT，添加BIOS刷新工具。感谢rampagedev.com。
+
+2017/10/10: 更新apfs.efi避免了开机界面打印Log。
 
 # 1 小白食用说明:
 
@@ -190,7 +192,7 @@ PC Beta上已经有小伙伴们使用AppleALC驱动起来了，有兴趣的可�
 
 ## 3.3 我能更新kexts吗？
 
-其他kexts随便更新，但是`lilu.kext`更新后需要重新编译CPUFriend才行。
+其他kexts随便更新，但是`lilu.kext`更新后需要更新CPUFriend.kext、重新生成对应的CPUFriendProvider.kext、更新AppleALC才行。
 
 ## 3.4 Failed getting nvram
 

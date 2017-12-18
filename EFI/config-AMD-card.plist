@@ -160,7 +160,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-v slide=0 dart=0 npci=0x3000 nvda_drv=1 kext-dev-mode=1 rootless=0 keepsyms=1 debug=0x100 -liludbgall -alcbeta -lilubetaall</string>
+		<string>-v slide=0 dart=0 npci=0x3000 nvda_drv=1 kext-dev-mode=1 rootless=0 keepsyms=1 debug=0x100</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultLoader</key>
