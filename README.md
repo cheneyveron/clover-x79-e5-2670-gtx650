@@ -228,18 +228,24 @@ VoodooHDA 2.9.0：支持5.1声道。
 
 # 4 致谢:
 
-远景论坛: http://bbs.pcbeta.com/viewthread-1720390-1-1.html
+- [Apple](https://www.apple.com)：研发的 macOS 系统
+- [Clover EFI bootloader](https://sourceforge.net/projects/cloverefiboot/)：强大的通用操作系统引导器
+- @[**vit9696**](https://github.com/vit9696)：制作 Lilu & AppleALC
+- [Piker.R.Alpha](https://pikeralpha.wordpress.com/)：对AICPM做出的研究、制作 ssdtPRGen.sh
+- [Alext James](https://alextjam.es/)(@**TheRaceMaster**)：对ACPI表的解析问题的分析
+- @[**PMHeart**](https://github.com/PMheart)：制作 CPUFriend，并热心的帮助了我
+- @[**stinga11**](http://www.insanelymac.com/forum/user/408886-stinga11/)：X79系列CPU变频的研究
+- [Rampage Dev](http://rampagedev.com)：提供的 SSDT
+- @[**shilohh**](https://www.tonymacx86.com/members/shilohh.312762)：解决NVIDIA显卡无输出问题
+- @**flipphos** & @**zouyanggary** & @**jameszhang18910780315**：BIOS方面的资讯
+- @**zouyanggary** & **kaeserlin**：提供的AppleALC方面的资讯
+- [远景论坛](http://bbs.pcbeta.com) & [Tonymacx86](https://www.tonymacx86.com) & [InsanelyMac](http://www.insanelymac.com)：提供交流的场所
 
-远景论坛: http://bbs.pcbeta.com/viewthread-1724967-1-1.html
+## 资助列表：
 
-Tonymacx86.com: https://www.tonymacx86.com/threads/black-screen-with-macpro-6-1-or-imac-15-or-imac-17-system-definition.183113/
+| 昵称    | 金额   | 备注   | 时间         |
+| ----- | ---- | ---- | ---------- |
+| cheng | ￥1   | 支付宝  | 2017.12.29 |
+| [未知]  | ￥5   | 微信   | 2017.12.25 |
 
-感谢 @**zouyanggary** 和 pcbeta 的 **kaeserlin** 提供的AppleALC方面的讯息和帮助。
 
-感谢 rampagedev.com 提供的 SSDT 。
-
-感谢 @**flipphos** @**zouyanggary** @**jameszhang18910780315** 三位网友提供的BIOS方面的资讯。
-
-还有整个的 bbs.pcbeta.com 与 insanelymac.com 。
-
-非常感激前辈们的贡献。
