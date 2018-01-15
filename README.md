@@ -14,6 +14,12 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 ## 变更记录:
 
+### 2018/1/15:
+
+1. 添加DSDT补丁支持12核心处理器；
+2. 添加原版BIOS，处理器与内存未超频、未修改DSDT；
+3. 更新Clover到4369；
+
 2017/12/18: VoodooHDA换成了AppleALC；更新lilu、CPUFriend；
 
 2017/11/24: 更新了BIOS工具。
@@ -32,7 +38,7 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 **BIOS版本 2.47**
 
-四叶草 版本 4359
+四叶草 版本 4369
 
 所有操作前，务必在BIOS中:
 
