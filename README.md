@@ -2,6 +2,8 @@
 
 English Version is [HERE](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/README.md).
 
+国内同步镜像：https://gitee.com/cheneyveron/clover-x79-e5-2670-gtx650
+
 ## 资助
 
 俺花费了一些时间和精力在上面，如果此项目帮助到了您，欢迎来资助我继续完善它。资助名单在最下方。
@@ -32,6 +34,8 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 # 1 小白食用说明:
 
+[进阶说明](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/变更说明.md)
+
 ## 1.1 主板: 华南 X79 V2
 
 主板版本 2.46
@@ -55,7 +59,7 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 - ATX版型（大版型）
 - 蓝色内存插槽
 
-那么你可以刷新BIOS。更详细的说明，和刷新方法不属于小白范畴，请阅读上面的“详细修改说明”。
+那么你可以刷新BIOS。更详细的说明，和刷新方法不属于小白范畴，请阅读上面的“进阶说明”。
 
 #### 1.1.1.1 我的CPU是xxx，显卡是xxx，可以刷吗?
 
@@ -78,7 +82,7 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 因为在High Sierra中，为了安装Web Driver你必须开启SIP。一旦开启SIP，你就不能给系统文件打补丁来解锁msr寄存器了。此寄存器不解锁，则CPU不能变频。
 
-好好理解一下上面这句话。至于SIP是什么，请阅读上面的“详细修改说明”。
+好好理解一下上面这句话。至于SIP是什么，请阅读上面的“进阶说明”。
 
 ### 1.1.3 我和你的主板不完全一样怎么办？
 
@@ -230,18 +234,24 @@ VoodooHDA 2.9.0：支持5.1声道。
 
 # 4 致谢:
 
-远景论坛: http://bbs.pcbeta.com/viewthread-1720390-1-1.html
+- [Apple](https://www.apple.com)：研发的 macOS 系统
+- [Clover EFI bootloader](https://sourceforge.net/projects/cloverefiboot/)：强大的通用操作系统引导器
+- @[**vit9696**](https://github.com/vit9696)：制作 Lilu & AppleALC
+- [Piker.R.Alpha](https://pikeralpha.wordpress.com/)：对AICPM做出的研究、制作 ssdtPRGen.sh
+- [Alext James](https://alextjam.es/)(@**TheRaceMaster**)：对ACPI表的解析问题的分析
+- @[**PMHeart**](https://github.com/PMheart)：制作 CPUFriend，并热心的帮助了我
+- @[**stinga11**](http://www.insanelymac.com/forum/user/408886-stinga11/)：X79系列CPU变频的研究
+- [Rampage Dev](http://rampagedev.com)：提供的 SSDT
+- @[**shilohh**](https://www.tonymacx86.com/members/shilohh.312762)：解决NVIDIA显卡无输出问题
+- @**flipphos** & @**zouyanggary** & @**jameszhang18910780315**：BIOS方面的资讯
+- @**zouyanggary** & **kaeserlin**：提供的AppleALC方面的资讯
+- [远景论坛](http://bbs.pcbeta.com) & [Tonymacx86](https://www.tonymacx86.com) & [InsanelyMac](http://www.insanelymac.com)：提供交流的场所
 
-远景论坛: http://bbs.pcbeta.com/viewthread-1724967-1-1.html
+## 资助列表：
 
-Tonymacx86.com: https://www.tonymacx86.com/threads/black-screen-with-macpro-6-1-or-imac-15-or-imac-17-system-definition.183113/
+| 昵称    | 金额   | 备注   | 时间         |
+| ----- | ---- | ---- | ---------- |
+| cheng | ￥1   | 支付宝  | 2017.12.29 |
+| [未知]  | ￥5   | 微信   | 2017.12.25 |
 
-感谢 @**zouyanggary** 和 pcbeta 的 **kaeserlin** 提供的AppleALC方面的讯息和帮助。
 
-感谢 rampagedev.com 提供的 SSDT 。
-
-感谢 @**flipphos** @**zouyanggary** @**jameszhang18910780315** 三位网友提供的BIOS方面的资讯。
-
-还有整个的 bbs.pcbeta.com 与 insanelymac.com 。
-
-非常感激前辈们的贡献。
