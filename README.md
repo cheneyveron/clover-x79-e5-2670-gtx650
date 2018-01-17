@@ -10,11 +10,15 @@ English Version is [HERE](https://github.com/cheneyveron/clover-x79-e5-2670-gtx6
 
 注意：这不是有偿协助，俺的时间非常有限，遇到问题请尽量提交issues，自己摸索。
 
+微信支付后可以留言，但是这位大哥您的手机号(1813691401)是10位的，联系不上呀。
+
 Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 ![支付宝与微信支付](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/IMG_0112.jpg)
 
 ## 变更记录:
+
+2018/1/17: 更新AppleALC，修复macOS High Sierra更新17C205后不出声音。
 
 ### 2018/1/15:
 
@@ -249,9 +253,8 @@ VoodooHDA 2.9.0：支持5.1声道。
 
 ## 资助列表：
 
-| 昵称    | 金额   | 备注   | 时间         |
-| ----- | ---- | ---- | ---------- |
-| cheng | ￥1   | 支付宝  | 2017.12.29 |
-| [未知]  | ￥5   | 微信   | 2017.12.25 |
-
-
+| 昵称              | 金额   | 备注   | 时间         |
+| --------------- | ---- | ---- | ---------- |
+| cheng           | ￥1   | 支付宝  | 2017.12.29 |
+| [未知]            | ￥5   | 微信   | 2017.12.25 |
+| [手机号1813691401] | ￥1   | 微信   | 2018.1.17  |
