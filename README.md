@@ -18,9 +18,11 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 ## 变更记录:
 
+2018/2/7: 更新Realtek 8111驱动; 更新Clover;
+
 2018/1/17: 更新AppleALC，修复macOS High Sierra更新17C205后不出声音。
 
-### 2018/1/15:
+2018/1/15:
 
 1. 添加DSDT补丁支持12核心处理器；
 2. 添加原版BIOS，处理器与内存未超频、未修改DSDT；
