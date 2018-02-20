@@ -4,13 +4,13 @@ English Version is [HERE](https://github.com/cheneyveron/clover-x79-e5-2670-gtx6
 
 国内同步镜像：https://gitee.com/cheneyveron/clover-x79-e5-2670-gtx650
 
+如果有兴趣探索更快更暴♂力的Ozmosis启动方式，欢迎关注我的新Repo： [黑苹果 Ozmosis for 华南 X79 V2.4X](https://github.com/cheneyveron/ozmosis-huanan-x79-e5-2670)
+
 ## 资助
 
 俺花费了一些时间和精力在上面，如果此项目帮助到了您，欢迎来资助我继续完善它。资助名单在最下方。
 
 注意：这不是有偿协助，俺的时间非常有限，遇到问题请尽量提交issues，自己摸索。
-
-微信支付后可以留言，但是这位大哥您的手机号(1813691401)是10位的，联系不上呀。
 
 Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
