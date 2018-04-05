@@ -470,6 +470,24 @@
 					<key>AFGLowPowerState</key>
 					<data>AwAAAA==</data>
 					<key>Codec</key>
+					<string>Custom ALC225/ALC3253 by ChalesYu</string>
+					<key>CodecID</key>
+					<integer>283902501</integer>
+					<key>ConfigData</key>
+					<data>
+					ASccEAEnHQEBJx6mAScfmQG3HCABtx0AAbce
+					FwG3H5kBlxwwAZcdEAGXHoEBlx8CAhccQAIX
+					HRACFx4hAhcfAgG3DAIBRwwCAhcMAg==
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>33</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
 					<string>Mirone - Realtek ALC233</string>
 					<key>CodecID</key>
 					<integer>283902515</integer>
@@ -789,6 +807,26 @@
 					<key>AFGLowPowerState</key>
 					<data>AwAAAA==</data>
 					<key>Codec</key>
+					<string>DuNe - Realtek ALC255 for Aorus X5V7</string>
+					<key>CodecID</key>
+					<integer>283902549</integer>
+					<key>ConfigData</key>
+					<data>
+					ASccEAEnHQABJx6mAScfkAFHHCABRx0AAUce
+					FwFHH5ABtxwhAbcdAAG3HhcBtx+QAXccMAF3
+					HQABdx4AAXcfQAHXHEAB1x0AAdcecAHXH0AC
+					FxxQAhcdEAIXHiECFx8CAaccYAGnHRABpx6B
+					AacfAgHnHHAB5x0QAeceRQHnHwIBRwwC
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>18</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
 					<string>ALC255 for Asus X556UA m-dudarev</string>
 					<key>CodecID</key>
 					<integer>283902549</integer>
@@ -994,6 +1032,25 @@
 					<key>AFGLowPowerState</key>
 					<data>AwAAAA==</data>
 					<key>Codec</key>
+					<string>MacPeet - ALC262 for HP Z800-Z600 series</string>
+					<key>CodecID</key>
+					<integer>283902562</integer>
+					<key>ConfigData</key>
+					<data>
+					AZccAAGXHREBlx6gAZcfkgGnHBABpx0xAace
+					gAGnH5EBVxwgAVcdQQFXHhABVx+RAWccMAFn
+					HQEBZx4AAWcfKQGHHEABhx2QAYceoAGHH5EB
+					txxQAbcdEAG3HisBtx8C
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>28</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
 					<string>Mirone - Realtek ALC268</string>
 					<key>CodecID</key>
 					<integer>283902568</integer>
@@ -1175,6 +1232,27 @@
 					<integer>1</integer>
 					<key>LayoutID</key>
 					<integer>9</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>CodecID</key>
+					<string>283902569</string>
+					<key>Comment</key>
+					<string>Toleda ALC269 patch for Brix</string>
+					<key>ConfigData</key>
+					<data>
+					IUcc8CFHHQAhRx4AIUcfQCFXHHAhVx1AIVce
+					ISFXHwIhZxzwIWcdACFnHgAhZx9AIXcc8CF3
+					HQAhdx4AIXcfQCGHHPAhhx0AIYceACGHH0Ah
+					lxzwIZcdACGXHgAhlx9AIacc8CGnHQAhpx4A
+					IacfQCG3HPAhtx0AIbceACG3H0Ah5xyQIecd
+					YSHnHksh5x8B
+					</data>
+					<key>FuncGroup</key>
+					<string>1</string>
+					<key>LayoutID</key>
+					<string>10</string>
 				</dict>
 				<dict>
 					<key>AFGLowPowerState</key>
@@ -1981,6 +2059,27 @@
 				<dict>
 					<key>AFGLowPowerState</key>
 					<data>AwAAAA==</data>
+					<key>CodecID</key>
+					<integer>283902594</integer>
+					<key>Comment</key>
+					<string>No input boost ALC282 Acer Aspire on IvyBridge by Andrey1970</string>
+					<key>ConfigData</key>
+					<data>
+					ASccMAEnHQABJx6gAScfkAFHHBABRx0AAUce
+					FwFHH5ABdxzwAXcdAAF3HgABdx9AAYcc8AGH
+					HQABhx4AAYcfQAGXHPABlx0AAZceAAGXH0AB
+					pxzwAacdAAGnHgABpx9AAbcc8AG3HQABtx4A
+					AbcfQAHnHPAB5x0AAeceAAHnH0ACFxwgAhcd
+					EAIXHiECFx8B
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>127</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
 					<key>Codec</key>
 					<string>Toleda NUC/BRIX patch ALC283</string>
 					<key>CodecID</key>
@@ -2307,6 +2406,23 @@
 					<integer>1</integer>
 					<key>LayoutID</key>
 					<integer>29</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
+					<string>InsanelyDeepak - Realtek ALC294</string>
+					<key>CodecID</key>
+					<integer>283902612</integer>
+					<key>ConfigData</key>
+					<data>
+					AXccEAF3HQABdx4XAXcfkAEnHCABJx0AASce
+					oAEnH5ACFxwwAhcdEAIXHiECFx8A
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>13</integer>
 				</dict>
 				<dict>
 					<key>AFGLowPowerState</key>
@@ -2681,6 +2797,28 @@
 					<integer>1</integer>
 					<key>LayoutID</key>
 					<integer>28</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
+					<string>ALC663</string>
+					<key>CodecID</key>
+					<integer>283903587</integer>
+					<key>Comment</key>
+					<string>Custom by alex1960 for ASUS N71J</string>
+					<key>ConfigData</key>
+					<data>
+					AUccAAFHHQEBRx4TAUcfmQA3HBAANx0AADce
+					VgA3HxgCFxwgAhcdQAIXHiECFx8BAbccMAG3
+					HUABtx4hAbcfAQHnHEAB5x0BAeceQwHnH5kB
+					hxxQAYcdCQGHHqMBhx+ZAZccYAGXHZwBlx6B
+					AZcfAQF3HPABdx0BAXceEwF3H5k=
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>99</integer>
 				</dict>
 				<dict>
 					<key>AFGLowPowerState</key>
@@ -3880,6 +4018,26 @@
 					<integer>99</integer>
 				</dict>
 				<dict>
+					<key>CodecID</key>
+					<integer>283904153</integer>
+					<key>Comment</key>
+					<string>ALC898, 4 Line Out by Andrey1970</string>
+					<key>ConfigData</key>
+					<data>
+					AUccAAFHHUABRx4RAUcfkAFXHBABVx0QAVce
+					AQFXHwEBZxwgAWcdYAFnHgEBZx8BAYccMAGH
+					HZABhx6gAYcfkAGnHEABpx0wAacegQGnHwEB
+					lxxQAZcdkAGXHoEBlx8CAbccYAG3HUABtx4h
+					AbcfAgHnHHAB5x1hAeceSwHnHwEBdxyAAXcd
+					IAF3HgEBdx8BAfcc8AH3HQAB9x4AAfcfSQEX
+					HPABFx0AARceAAEXH0k=
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>101</integer>
+				</dict>
+				<dict>
 					<key>AFGLowPowerState</key>
 					<data>AwAAAA==</data>
 					<key>CodecID</key>
@@ -4973,6 +5131,24 @@
 					<integer>1</integer>
 					<key>LayoutID</key>
 					<integer>12</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
+					<string>MacPeet - IDT92HD91BXX for HP Envy 6 1171-SG</string>
+					<key>CodecID</key>
+					<integer>287143648</integer>
+					<key>ConfigData</key>
+					<data>
+					ALccEAC3HRAAtx4hALcfAAC3DAIAxxwgAMcd
+					EADHHoEAxx8AARccMAEXHQABFx6jARcfmQDX
+					HEAA1x0AANceEADXH5AA1wwC
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>13</integer>
 				</dict>
 				<dict>
 					<key>AFGLowPowerState</key>

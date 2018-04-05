@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>14F27</string>
+	<string>15C50</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2.9</string>
+	<string>1.2.11</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -25,11 +25,11 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.2.9</string>
+	<string>1.2.11</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>7A1001</string>
+	<string>7C68</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
@@ -37,17 +37,31 @@
 	<key>DTSDKName</key>
 	<string>macosx10.8</string>
 	<key>DTXcode</key>
-	<string>0701</string>
+	<string>0720</string>
 	<key>DTXcodeBuild</key>
-	<string>7A1001</string>
+	<string>7C68</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>GenericUSBXHCI</key>
 		<dict>
+			<key>#IOPCIPrimaryMatch</key>
+			<string>0x01941033</string>
 			<key>ASMediaEDLTAFix</key>
 			<true/>
 			<key>CFBundleIdentifier</key>
 			<string>net.osx86.kexts.GenericUSBXHCI</string>
+			<key>DeviceBlacklist</key>
+			<dict>
+				<key>1b73</key>
+				<integer>0</integer>
+				<key>8086</key>
+				<integer>0</integer>
+			</dict>
+			<key>DeviceWhitelist</key>
+			<dict>
+				<key>1b73_1000</key>
+				<integer>0</integer>
+			</dict>
 			<key>IOClass</key>
 			<string>GenericUSBXHCI</string>
 			<key>IOPCIClassMatch</key>
@@ -67,7 +81,7 @@
 			<key>RM,Build</key>
 			<string>Universal-RehabMan</string>
 			<key>RM,Version</key>
-			<string>GenericUSBXHCI 1.2.9</string>
+			<string>GenericUSBXHCI 1.2.11</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
