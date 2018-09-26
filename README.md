@@ -20,7 +20,10 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 ## 变更记录:
 
-2018/9/26:更新Clover至
+2018/9/26:更新Clover至4674，支持10.14; 更新大量驱动; NvidiaGraphicsFixup替换为WhateverGreen;电脑不在身旁，未详尽测试，可能的问题如下：
+
+1. Nvidia Web Driver未更新，非免驱卡用户请勿更新。
+2. CPU变频只有4挡：2.6 / 3.0 / 3.1 / 3.2 / 3.3，需要网友们协助。
 
 2018/4/5: 更新Clover至4423，支持10.13.4; 更新大量驱动; 电脑不在身旁，未测试bug，请反馈。
 
@@ -189,12 +192,10 @@ VoodooHDA 2.9.0：支持5.1声道。
 # 2 macOS兼容性:
 
 - 10.10 Yosemite: 未测试.
-
-- 10.11 El Capitan: 良好.
-
+- 10.11 El Capitan: 未测试.
 - 10.12 macOS Sierra: 良好.
-
-- 10.13.1 macOS High Sierra: 良好.
+- 10.13.4 macOS High Sierra: 良好.
+- 10.14 macOS Mojave: 一般.
 
 # 3 其他常见问题
 
