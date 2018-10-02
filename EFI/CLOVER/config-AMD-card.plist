@@ -12,8 +12,6 @@
 			<true/>
 			<key>Fixes</key>
 			<dict>
-				<key>FixHeaders</key>
-				<true/>
 				<key>FixShutdown</key>
 				<true/>
 			</dict>
@@ -562,6 +560,8 @@
 				<string>CpuPm</string>
 			</dict>
 		</array>
+		<key>FixHeaders</key>
+		<true/>
 		<key>HaltEnabler</key>
 		<true/>
 		<key>SSDT</key>
@@ -580,7 +580,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-v slide=0 dart=0 npci=0x3000 nvda_drv=1 kext-dev-mode=1 rootless=0 keepsyms=1 debug=0x100 -liludbgall -alcbeta -lilubetaall</string>
+		<string>nvda_drv=1 npci=0x3000 -liludbgall slide=0 kext-dev-mode=1 debug=0x100 dart=0 -alcbeta -v rootless=0 keepsyms=1 -lilubetaall</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultLoader</key>
@@ -608,7 +608,7 @@
 		<key>Audio</key>
 		<dict>
 			<key>Inject</key>
-			<string>5</string>
+			<integer>5</integer>
 			<key>ResetHDA</key>
 			<true/>
 		</dict>
@@ -727,6 +727,8 @@
 				<data>
 				RXh0ZXJuYWw=
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>AppleAHCIPort</string>
 				<key>Replace</key>
@@ -743,6 +745,8 @@
 				<data>
 				QVBQTEUgU1NEAA==
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>IOAHCIBlockStorage</string>
 				<key>Replace</key>
@@ -757,6 +761,8 @@
 				<data>
 				AXRh
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.12.x,10.13.x</string>
 				<key>Name</key>
@@ -773,6 +779,8 @@
 				<data>
 				yXQMDzKD4B9CiUQ7
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.12.x,10.13.x</string>
 				<key>Name</key>
@@ -789,6 +797,8 @@
 				<data>
 				dRG5
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.12.x,10.13.x</string>
 				<key>Name</key>
@@ -805,6 +815,8 @@
 				<data>
 				/w+ELQ==
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.12.x</string>
 				<key>Name</key>
@@ -821,6 +833,8 @@
 				<data>
 				yXQVDzIl/w8AAEg=
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.12.x</string>
 				<key>Name</key>
@@ -837,6 +851,8 @@
 				<data>
 				AQABD4Q=
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.12.x,10.13.x</string>
 				<key>Name</key>
@@ -853,6 +869,8 @@
 				<data>
 				PnU4
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.12.x,10.13.x</string>
 				<key>Name</key>
@@ -869,6 +887,8 @@
 				<data>
 				/w+E0w==
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.13.x</string>
 				<key>Name</key>
@@ -885,6 +905,8 @@
 				<data>
 				yXQUDzIl/w8AAGs=
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.13.x</string>
 				<key>Name</key>
@@ -910,11 +932,11 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>08/08/2017</string>
+		<string>04/11/2018</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MP61.88Z.0120.B00.1708080652</string>
+		<string>MP61.88Z.0124.B00.1804111223</string>
 		<key>Board-ID</key>
 		<string>Mac-F60DEB81FF30ACF6</string>
 		<key>BoardManufacturer</key>
@@ -924,7 +946,7 @@
 		<key>BoardType</key>
 		<integer>11</integer>
 		<key>BoardVersion</key>
-		<string>MacPro6,1</string>
+		<string>1.0</string>
 		<key>ChassisAssetTag</key>
 		<string>Pro-Enclosure</string>
 		<key>ChassisManufacturer</key>
@@ -934,7 +956,7 @@
 		<key>Family</key>
 		<string>MacPro</string>
 		<key>FirmwareFeatures</key>
-		<string>0xE80FE136</string>
+		<string>0xE80FE137</string>
 		<key>FirmwareFeaturesMask</key>
 		<string>0xFF1FFF3F</string>
 		<key>LocationInChassis</key>
