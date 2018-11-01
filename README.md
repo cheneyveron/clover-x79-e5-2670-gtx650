@@ -27,7 +27,7 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 - 声卡：ALC662 V3
 - 网卡：Rtl8100/8600
 
-如今X79只能使用DDR3内存，最高1866MHz，并且E5 v2处理器性价比已经不高。Intel处理器性价比极低，因此新配电脑，推荐使用Ryzen + b350主板。
+如今X79只能使用DDR3内存，最高1866MHz，并且E5 v2处理器性价比已经不高。Intel 7系以上处理器性价比极低，新配电脑推荐使用Ryzen + b350主板。
 
 ## 变更记录:
 
