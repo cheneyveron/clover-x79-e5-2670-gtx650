@@ -27,9 +27,11 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 - 声卡：ALC662 V3
 - 网卡：Rtl8100/8600
 
-如今X79只能使用DDR3内存，最高1866MHz，并且E5 v2处理器性价比已经不高。Intel 7系以上处理器性价比极低，新配电脑推荐使用Ryzen + b350主板。
+如今X79只能使用DDR3内存，最高1866MHz，并且E5 v2处理器性价比已经不高。Intel 7系以上处理器性价比极低，新配电脑推荐使用Ryzen + x370主板。
 
 ## 变更记录:
+
+2019/4/13:修复10.14下CPU变频问题; 更新KextsToPatch; 更新Clover至4910, 支持10.14.2; 清理主题文档等文件。
 
 2018/12/23:更新E5-2696 V2变频SSDT，理论24档，实际测试至少有10档变频。感谢@**zouyanggary**。
 
