@@ -4,7 +4,7 @@ English Version is [HERE](https://github.com/cheneyveron/clover-x79-e5-2670-gtx6
 
 国内同步镜像：https://gitee.com/cheneyveron/clover-x79-e5-2670-gtx650
 
-如果有兴趣探索更快更暴♂力的Ozmosis启动方式，欢迎关注我的新Repo： [黑苹果 Ozmosis for 华南 X79 V2.4X](https://github.com/cheneyveron/ozmosis-huanan-x79-e5-2670)
+如今X79只能使用DDR3内存，最高1866MHz，并且E5 v2处理器性价比已经不高。Intel 7系以上处理器性价比极低，新配电脑推荐使用Ryzen + x370主板。Ryzen黑苹果我自认为已经找到了一种近乎"完美"的方案：见[我的博客](https://www.itmanbu.com/ryzen-hackintosh-using-kvm-proxmox.html)、[远景论坛](http://bbs.pcbeta.com/viewthread-1813655-1-1.html)
 
 ## 资助
 
@@ -27,9 +27,9 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 - 声卡：ALC662 V3
 - 网卡：Rtl8100/8600
 
-如今X79只能使用DDR3内存，最高1866MHz，并且E5 v2处理器性价比已经不高。Intel 7系以上处理器性价比极低，新配电脑推荐使用Ryzen + x370主板。
-
 ## 变更记录:
+
+2019/4/24:更新Clover至4920, 支持10.14.4; 更新Kexts与drivers64UEFI至最新。
 
 2019/4/13:修复10.14下CPU变频问题; 更新KextsToPatch; 更新Clover至4910, 支持10.14.2; 清理主题文档等文件。
 
