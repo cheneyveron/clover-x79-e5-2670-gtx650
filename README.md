@@ -4,7 +4,15 @@ English Version is [HERE](https://github.com/cheneyveron/clover-x79-e5-2670-gtx6
 
 国内同步镜像：https://gitee.com/cheneyveron/clover-x79-e5-2670-gtx650
 
-如今X79只能使用DDR3内存，最高1866MHz，并且E5 v2处理器性价比已经不高。Intel 7系以上处理器性价比极低，新配电脑推荐使用Ryzen + x370主板。Ryzen黑苹果我自认为已经找到了一种近乎"完美"的方案：见[我的博客](https://www.itmanbu.com/ryzen-hackintosh-using-kvm-proxmox.html)、[远景论坛](http://bbs.pcbeta.com/viewthread-1813655-1-1.html)
+***请朋友们先勿更新本EFI*** 非常抱歉，因手头无主板，难以完整测试，经提醒，目前efi至少还存在以下问题：
+
+1. 因遗漏更新EFI/BOOT/BOOTX64.efi，Clover版本一直未升级；
+2. 部分网友卡Scan Entries...界面
+3. 部分网友在10.13.6下出现了IONVME驱动问题导致内核崩溃
+
+感谢热心网友**Will.i.am**资助了我一块华南烈焰x79的主板，5月1日前能到货，届时我将统一测试并更新。
+
+再次十分抱歉！
 
 ## 资助
 
@@ -26,6 +34,8 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 - 内存：32GB 2RX4 DDR3L 1600
 - 声卡：ALC662 V3
 - 网卡：Rtl8100/8600
+
+如今X79只能使用DDR3内存，最高1866MHz，并且E5 v2处理器性价比已经不高。Intel 7系以上处理器性价比极低，新配电脑推荐使用Ryzen + x370主板。Ryzen黑苹果我自认为已经找到了一种近乎"完美"的方案：见[我的博客](https://www.itmanbu.com/ryzen-hackintosh-using-kvm-proxmox.html)、[远景论坛](http://bbs.pcbeta.com/viewthread-1813655-1-1.html)
 
 ## 变更记录:
 
