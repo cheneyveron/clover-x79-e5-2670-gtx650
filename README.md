@@ -4,15 +4,9 @@ English Version is [HERE](https://github.com/cheneyveron/clover-x79-e5-2670-gtx6
 
 国内同步镜像：https://gitee.com/cheneyveron/clover-x79-e5-2670-gtx650
 
-***请朋友们先勿更新本EFI*** 非常抱歉，因手头无主板，难以完整测试，经提醒，目前efi至少还存在以下问题：
+10.14.5，它来了！
 
-1. 因遗漏更新EFI/BOOT/BOOTX64.efi，Clover版本一直未升级；
-2. 部分网友卡Scan Entries...界面
-3. 部分网友在10.13.6下出现了IONVME驱动问题导致内核崩溃
-
-感谢热心网友**Will.i.am**资助了我一块华南烈焰x79的主板，5月1日前能到货，届时我将统一测试并更新。
-
-再次十分抱歉！
+感谢热心网友**Will.i.am**资助了我一块华南烈焰x79的主板。
 
 ## 资助
 
@@ -30,7 +24,7 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 - 主板: 华南金牌 X79 V2.46 ATX
 - CPU：E5-2670 V1 C2
-- 显卡：蓝宝石RX560 75W
+- 显卡：~~蓝宝石RX560（已点不亮）~~松景RX570 4G
 - 内存：32GB 2RX4 DDR3L 1600
 - 声卡：ALC662 V3
 - 网卡：Rtl8100/8600
@@ -39,41 +33,15 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 ## 变更记录:
 
-2019/4/24:更新Clover至4920, 支持10.14.4; 更新Kexts与drivers64UEFI至最新。
+2019/5/20:更新Clover至4920; 替换ApfsDriverLoader-64.efi为apfs.efi; VirtualSMC替换FakeSMC; 支持10.14.5; 更新Kexts;。
+
+2019/4/24:更新Kexts与drivers64UEFI至最新。
 
 2019/4/13:修复10.14下CPU变频问题; 更新KextsToPatch; 更新Clover至4910, 支持10.14.2; 清理主题文档等文件。
 
 2018/12/23:更新E5-2696 V2变频SSDT，理论24档，实际测试至少有10档变频。感谢@**zouyanggary**。
 
-2018/12/8:更新Drivers64UEFI,解决部分网友丢失安装盘与无法进入安装界面的问题；
-
-更新Kext Patches,10.14.0与10.14.1均有8档变频。
-
-2018/9/26:更新Clover至4674，支持10.14; 更新大量驱动; NvidiaGraphicsFixup替换为WhateverGreen;电脑不在身旁，未详尽测试，可能的问题如下：
-
-1. Nvidia Web Driver未更新，非免驱卡用户请勿更新。
-
-2018/4/5: 更新Clover至4423，支持10.13.4; 更新大量驱动; 电脑不在身旁，未测试bug，请反馈。
-
-2018/2/7: 更新Realtek 8111驱动; 更新Clover;
-
-2018/1/17: 更新AppleALC，修复macOS High Sierra更新17C205后不出声音。
-
-2018/1/15:
-
-1. 添加DSDT补丁支持12核心处理器；
-2. 添加原版BIOS，处理器与内存未超频、未修改DSDT；
-3. 更新Clover到4369；
-
-2017/12/18: VoodooHDA换成了AppleALC；更新lilu、CPUFriend；
-
-2017/11/24: 更新了BIOS工具。
-
-2017/11/22: 修复10.13.1下安装时的`OsxAptioFixDrv`错误。
-
-2017/10/28: 添加多种CPU的变频SSDT，添加BIOS刷新工具。
-
-2017/10/10: 更新apfs.efi避免了开机界面打印Log。
+...
 
 # 1 小白食用说明:
 
@@ -85,7 +53,7 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 **BIOS版本 2.47**
 
-四叶草 版本 4369
+四叶草 版本 4920
 
 所有操作前，务必在BIOS中:
 
@@ -98,19 +66,11 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 如果你满足下面的条件：
 
-- 华南金牌主板（418块钱左右的）
+- 华南金牌主板
 - ATX版型（大版型）
-- 蓝色内存插槽
+- CPU槽下方印着2.4x版本
 
 那么你可以刷新BIOS。更详细的说明，和刷新方法不属于小白范畴，请阅读上面的“进阶说明”。
-
-#### 1.1.1.1 我的CPU是xxx，显卡是xxx，可以刷吗?
-
-可以。BIOS只与主板有关，与CPU、显卡、键鼠无关。
-
-#### 1.1.1.2 刷了之后还能装Windows/Linux吗?
-
-可以。俺把DSDT中的USB命名/CPU部分规范了一下而已。
 
 ### 1.1.2 我需不需要刷新BIOS？
 
@@ -274,9 +234,11 @@ VoodooHDA 2.9.0：支持5.1声道。
 
 解决方法：先重启试试。如果不行，就尝试将`drivers64UEFI/OsxAptioFix2Drv-free2000.efi`与`driver64UEFI_Optional/OsxAptioFix2Drv-64.efi`互换。
 
-## 3.6 OsxAptioFixDrv...
+## 3.6 Scan Entries...
 
-兄dei，你该更新俺的新版EFI了。
+我更新Clover 4920后出现了卡Scan Entries...的问题，将ApfsDriverLoader-64.efi换为apfs.efi即可。
+
+还有人去掉了AudioDxe-64.efi以后即可。
 
 # 4 致谢:
 
@@ -297,6 +259,7 @@ VoodooHDA 2.9.0：支持5.1声道。
 
 | 昵称            | 金额     | 备注   | 时间         |
 | ------------- | ------ | ---- | ---------- |
+| Will.i.am      | ￥500+ | 烈焰战神X79 | 2019.5.1 |
 | 大仁            | ￥33.33 | 微信   | 2018.12.7  |
 | \*仁           | ￥14.76 | 微信   | 2018.11.27 |
 | \*年           | ￥50    | 微信   | 2018.11.20 |
