@@ -4,7 +4,7 @@ English Version is [HERE](https://github.com/cheneyveron/clover-x79-e5-2670-gtx6
 
 国内同步镜像：https://gitee.com/cheneyveron/clover-x79-e5-2670-gtx650
 
-10.14.5，它来了！
+已经支持 **macOS 10.15 Catalina Beta**。
 
 感谢热心网友**Will.i.am**资助了我一块华南烈焰x79的主板。
 
@@ -24,7 +24,7 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 - 主板: 华南金牌 X79 V2.46 ATX
 - CPU：E5-2670 V1 C2
-- 显卡：~~蓝宝石RX560（已点不亮）~~松景RX570 4G
+- 显卡：~~蓝宝石RX560（已点不亮）~~ 松景RX570 4G
 - 内存：32GB 2RX4 DDR3L 1600
 - 声卡：ALC662 V3
 - 网卡：Rtl8100/8600
@@ -32,6 +32,8 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 如今X79只能使用DDR3内存，最高1866MHz，并且E5 v2处理器性价比已经不高。Intel 7系以上处理器性价比极低，新配电脑推荐使用Ryzen + x370主板。Ryzen黑苹果我自认为已经找到了一种近乎"完美"的方案：见[我的博客](https://www.itmanbu.com/ryzen-hackintosh-using-kvm-proxmox.html)、[远景论坛](http://bbs.pcbeta.com/viewthread-1813655-1-1.html)
 
 ## 变更记录:
+
+2019/6/7:支持10.15 Catalina Beta; 更新SMBIOS为iMacPro1,1 原生支持rx570硬解; 更新Clover至4945; 替换lilu等驱动为最新版;
 
 2019/5/20:更新Clover至4920; 替换ApfsDriverLoader-64.efi为apfs.efi; VirtualSMC替换FakeSMC; 支持10.14.5; 更新Kexts;。
 
@@ -186,9 +188,10 @@ VoodooHDA 2.9.0：支持5.1声道。
 
 - 10.10 Yosemite: 未测试.
 - 10.11 El Capitan: 未测试.
-- 10.12 macOS Sierra: 良好.
+- 10.12 macOS Sierra: 未测试.
 - 10.13.4 macOS High Sierra: 良好.
-- 10.14 macOS Mojave: 一般.
+- 10.14.5 macOS Mojave: 一般. 存在睡眠唤醒 与 启动时可能因显卡驱动而崩溃的问题.
+- 10.15 beta macOS Catalina: 一般. 同上.
 
 # 3 其他常见问题
 
