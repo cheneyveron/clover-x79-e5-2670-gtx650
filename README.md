@@ -4,9 +4,19 @@ English Version is [HERE](https://github.com/cheneyveron/clover-x79-e5-2670-gtx6
 
 国内同步镜像：https://gitee.com/cheneyveron/clover-x79-e5-2670-gtx650
 
-已经支持 **macOS 10.15 Catalina Beta**。
-
 感谢热心网友**Will.i.am**资助了我一块华南烈焰x79的主板。
+
+## Ryzen黑苹果方案
+
+因x370硬件直通bug较多，工作繁忙无暇折腾，故换了z390。折腾的历史如下：
+
+[我的博客](https://www.itmanbu.com/ryzen-hackintosh-using-kvm-proxmox.html)、[远景论坛](http://bbs.pcbeta.com/viewthread-1813655-1-1.html)、[hackintosh-clover-tachi-x370-1700x-rx570](https://github.com/cheneyveron/hackintosh-clover-tachi-x370-1700x-rx570)
+
+## Z390黑苹果方案
+
+是目前最接近白果的体验，整好以后就不用折腾了，与我的MBP比起来几乎没有区别：
+
+[hackintosh-clover-z390-aorus-pro-wifi-9700k-rx580](https://github.com/cheneyveron/hackintosh-clover-z390-aorus-pro-wifi-9700k-rx580)
 
 ## 资助
 
@@ -18,7 +28,7 @@ English Version is [HERE](https://github.com/cheneyveron/clover-x79-e5-2670-gtx6
 
 Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
-![支付宝与微信支付](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/IMG_0112.jpg)
+![支付宝与微信支付](https://img.itmanbu.com//wp-content/uploads/2019/12/IMG_0112.jpg)
 
 ## 硬件详情
 
@@ -29,9 +39,9 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 - 声卡：ALC662 V3
 - 网卡：Rtl8100/8600
 
-如今X79只能使用DDR3内存，最高1866MHz，并且E5 v2处理器性价比已经不高。Intel 7系以上处理器性价比极低，新配电脑推荐使用Ryzen + x370主板。Ryzen黑苹果我自认为已经找到了一种近乎"完美"的方案：见[我的博客](https://www.itmanbu.com/ryzen-hackintosh-using-kvm-proxmox.html)、[远景论坛](http://bbs.pcbeta.com/viewthread-1813655-1-1.html)
-
 ## 变更记录:
+
+2019/12/8:支持10.15.1 Catalina; 更新Clover至5099; 替换lilu等驱动为最新版;
 
 2019/6/7:支持10.15 Catalina Beta; 更新SMBIOS为iMacPro1,1 原生支持rx570硬解; 更新Clover至4945; 替换lilu等驱动为最新版;
 
@@ -44,6 +54,15 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 2018/12/23:更新E5-2696 V2变频SSDT，理论24档，实际测试至少有10档变频。感谢@**zouyanggary**。
 
 ...
+
+# macOS兼容性:
+
+- 10.10 Yosemite: 未测试.
+- 10.11 El Capitan: 未测试.
+- 10.12 macOS Sierra: 未测试.
+- 10.13.4 macOS High Sierra: 良好.
+- 10.14.5 macOS Mojave: 一般. 存在睡眠唤醒 与 启动时可能因显卡驱动而崩溃的问题.
+- 10.15 beta macOS Catalina: 一般. 同上.
 
 # 1 小白食用说明:
 
@@ -66,13 +85,7 @@ Paypal : [paypal.me/cheneyveron](https://paypal.me/cheneyveron)
 
 ### 1.1.1 我能不能刷BIOS？
 
-如果你满足下面的条件：
-
-- 华南金牌主板
-- ATX版型（大版型）
-- CPU槽下方印着2.4x版本
-
-那么你可以刷新BIOS。更详细的说明，和刷新方法不属于小白范畴，请阅读上面的“进阶说明”。
+如果你的主板上印有 **华南金牌v2.4x** 的字样，那么你可以刷新BIOS。更详细的说明，和刷新方法，请阅读上面的“进阶说明”。
 
 ### 1.1.2 我需不需要刷新BIOS？
 
@@ -184,22 +197,13 @@ VoodooHDA 2.8.9：只支持双声道。
 
 VoodooHDA 2.9.0：支持5.1声道。
 
-# 2 macOS兼容性:
+# 2 其他常见问题
 
-- 10.10 Yosemite: 未测试.
-- 10.11 El Capitan: 未测试.
-- 10.12 macOS Sierra: 未测试.
-- 10.13.4 macOS High Sierra: 良好.
-- 10.14.5 macOS Mojave: 一般. 存在睡眠唤醒 与 启动时可能因显卡驱动而崩溃的问题.
-- 10.15 beta macOS Catalina: 一般. 同上.
-
-# 3 其他常见问题
-
-## 3.1 Fusion Drive/Raid如何配置:
+## 2.1 Fusion Drive/Raid如何配置:
 
 见 [这个指南](https://github.com/cheneyveron/clover-x79-e5-2670-gtx650/blob/master/docs/fusion-drive-设置.md).
 
-## 3.2 10.13 AppleACPIPlatform(MACH Reboot)
+## 2.2 10.13 AppleACPIPlatform(MACH Reboot)
 
 在本EFI中附带的两个plist中，`ACPI -> Patch`部分有四个补丁名字为`CUU0`到`CUU3`，将他们添加到自己的配置文件中即可。
 
@@ -211,39 +215,39 @@ VoodooHDA 2.9.0：支持5.1声道。
 
 [Insanelymac](http://www.insanelymac.com/forum/topic/326200-new-possibilities-for-x79-appleacpiplatform-panic)(英文).
 
-## 3.3 我能更新kexts吗？
+## 2.3 我能更新kexts吗？
 
 其他kexts随便更新，但是`lilu.kext`更新后需要更新CPUFriend.kext、重新生成对应的CPUFriendProvider.kext、更新AppleALC才行。
 
-### 3.3.1 如何更新 AppleALC:
+### 2.3.1 如何更新 AppleALC:
 
 下载新版的`lilu.kext`、`AppleALC.kext`替换`EFI/Clover/kexts`中的即可。
 
-### 3.3.2 如何更新 CPUFriend:
+### 2.3.2 如何更新 CPUFriend:
 
 1. 下载新版的`CPUFriend.kext`和CPUFriend的Git仓库
 2. 运行`ResourceConverter.sh`，指定`X79PlatformPlugin.kext`中的`Mac-F60DEB81FF30ACF6.plist`来生成`CPUFriendProvider.kext`
 3. 替换上去即可
 
-## 3.4 Failed getting nvram
+## 2.4 Failed getting nvram
 
 原因：你用了不适合的DSDT。
 
 解决方法：删掉`EFI/Clover/ACPI/patched/DSDT.aml`。
 
-## 3.5 Freeing low memory (up tp 0x20000000)...
+## 2.5 Freeing low memory (up tp 0x20000000)...
 
 原因：CPU在释放2MB内存时卡死。
 
 解决方法：先重启试试。如果不行，就尝试将`drivers64UEFI/OsxAptioFix2Drv-free2000.efi`与`driver64UEFI_Optional/OsxAptioFix2Drv-64.efi`互换。
 
-## 3.6 Scan Entries...
+## 2.6 Scan Entries...
 
 我更新Clover 4920后出现了卡Scan Entries...的问题，将ApfsDriverLoader-64.efi换为apfs.efi即可。
 
 还有人去掉了AudioDxe-64.efi以后即可。
 
-# 4 致谢:
+# 3 致谢:
 
 - [Apple](https://www.apple.com)：研发的 macOS 系统
 - [Clover EFI bootloader](https://sourceforge.net/projects/cloverefiboot/)：强大的通用操作系统引导器
@@ -262,7 +266,16 @@ VoodooHDA 2.9.0：支持5.1声道。
 
 | 昵称            | 金额     | 备注   | 时间         |
 | ------------- | ------ | ---- | ---------- |
+| L\*g      | ￥30 | 微信 | 2019.12.3 |
+| \*苏      | ￥10 | 微信 | 2019.11.2 |
+| \*花      | ￥1 | 微信 | 2019.10.27 |
+| l\*F      | ￥6.66 | 微信 | 2019.8.24 |
+| \*.      | ￥10 | 微信 | 2019.8.24 |
+| h\*1      | ￥9.96 | 微信 | 2019.6.27 |
+| \*絮      | ￥1 | 微信 | 2019.6.13 |
+| A\*.      | ￥3.5 | 微信 | 2019.6.8 |
 | lucasam      | ￥88 | 微信 | 2019.5.21 |
+| \*牛      | ￥9.9 | 微信 | 2019.5.7 |
 | Will.i.am      | ￥500+ | 烈焰战神X79 | 2019.5.1 |
 | 大仁            | ￥33.33 | 微信   | 2018.12.7  |
 | \*仁           | ￥14.76 | 微信   | 2018.11.27 |

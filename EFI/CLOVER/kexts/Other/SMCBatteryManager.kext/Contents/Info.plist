@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>18F132</string>
+	<string>18E226</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -45,6 +45,8 @@
 			<key>CFBundleIdentifier</key>
 			<string>ru.usrsse2.SMCBatteryManager</string>
 			<key>IOClass</key>
+			<string>SMCSMBusController</string>
+			<key>IOMatchCategory</key>
 			<string>SMCSMBusController</string>
 			<key>IOProviderClass</key>
 			<string>IOResources</string>
